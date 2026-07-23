@@ -1,0 +1,552 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #fafaf8;
+  --color-ink: #111111;
+  --color-card: #f4f4f2;
+  --color-accent: #ff4d00;
+
+  --font-sans: "Geist", "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-serif: "Instrument Serif", Georgia, serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  * {
+    @apply border-ink/5;
+  }
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* ------------------------------------------------ base ------------------------------------------------ */
+
+html {
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-paper);
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(17 17 17 / 0.18);
+  border-radius: 99px;
+  border: 3px solid var(--color-paper);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(17 17 17 / 0.35);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ------------------------------------------------ layout ------------------------------------------------ */
+
+.container-x {
+  width: 100%;
+  max-width: 1480px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+@media (min-width: 768px) {
+  .container-x {
+    padding-inline: 48px;
+  }
+}
+@media (min-width: 1024px) {
+  .container-x {
+    padding-inline: 80px;
+  }
+}
+
+.section-pad {
+  padding-top: clamp(60px, 8vw, 100px);
+}
+
+/* Keep anchored sections clear of the fixed nav pill. */
+section[id] {
+  scroll-margin-top: 96px;
+}
+
+/* ------------------------------------------------ type ------------------------------------------------ */
+
+.h-display {
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 0.94;
+  font-size: clamp(3.4rem, 7.7vw, 6.875rem);
+}
+
+.h-section {
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  font-size: clamp(2.6rem, 4.9vw, 4.5rem);
+}
+
+.h-role {
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  font-size: clamp(2rem, 3.2vw, 3.25rem);
+}
+
+.h-card {
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  font-size: clamp(1.625rem, 2.3vw, 2.25rem);
+}
+
+.display-num {
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+  font-size: clamp(3rem, 4.6vw, 4.5rem);
+  font-variant-numeric: tabular-nums;
+}
+
+.text-lead {
+  font-size: clamp(1.0625rem, 1.3vw, 1.25rem);
+  line-height: 1.6;
+}
+
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.serif-i {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  font-size: 1.03em;
+}
+
+/* ------------------------------------------------ surfaces ------------------------------------------------ */
+
+.card-surface {
+  background: var(--color-card);
+  border-radius: 36px;
+}
+
+.chip {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgb(17 17 17 / 0.6);
+  border: 1px solid rgb(17 17 17 / 0.12);
+  border-radius: 999px;
+  padding: 0.45rem 0.85rem;
+  white-space: nowrap;
+  background: rgb(255 255 255 / 0.35);
+}
+
+/* ------------------------------------------------ controls ------------------------------------------------ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  border-radius: 999px;
+  padding: 0.72rem 1.4rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border: 1px solid rgb(17 17 17 / 0.14);
+  background: rgb(250 250 248 / 0.72);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: var(--color-ink);
+  transition:
+    background 0.45s var(--ease-out-expo),
+    color 0.45s var(--ease-out-expo),
+    border-color 0.45s var(--ease-out-expo),
+    box-shadow 0.45s var(--ease-out-expo),
+    transform 0.2s var(--ease-out-expo),
+    translate 0.22s var(--ease-out-expo);
+}
+.btn:hover {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  border-color: var(--color-ink);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn--primary {
+  border-color: rgb(17 17 17 / 0.3);
+  box-shadow: 0 8px 22px -12px rgb(17 17 17 / 0.4);
+}
+
+.btn-icon {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  border: 1px solid rgb(17 17 17 / 0.14);
+  background: rgb(250 250 248 / 0.72);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: var(--color-ink);
+  transition:
+    background 0.45s var(--ease-out-expo),
+    color 0.45s var(--ease-out-expo),
+    border-color 0.45s var(--ease-out-expo),
+    transform 0.25s var(--ease-out-expo),
+    translate 0.22s var(--ease-out-expo);
+}
+.btn-icon:hover {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  border-color: var(--color-ink);
+}
+.btn-icon > svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Pointer spotlight — a warm sheen + glowing edge that chase the cursor across
+   every card and framed image, enabled only when JS adds .pointer-fx so that
+   reduced-motion / no-JS visitors get a clean static surface instead. */
+.pointer-fx :is(.rounded-\[32px\], .rounded-\[36px\], .rounded-\[40px\], .card-surface) {
+  position: relative;
+}
+.pointer-fx :is(.rounded-\[32px\], .rounded-\[36px\], .rounded-\[40px\], .card-surface)::before,
+.pointer-fx :is(.rounded-\[32px\], .rounded-\[36px\], .rounded-\[40px\], .card-surface)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-out-expo);
+}
+.pointer-fx :is(.rounded-\[32px\], .rounded-\[36px\], .rounded-\[40px\], .card-surface)::before {
+  z-index: 1;
+  background: radial-gradient(
+    240px circle at var(--mx, 50%) var(--my, 50%),
+    rgb(255 77 0 / 0.1),
+    transparent 60%
+  );
+}
+.pointer-fx :is(.rounded-\[32px\], .rounded-\[36px\], .rounded-\[40px\], .card-surface)::after {
+  z-index: 3;
+  padding: 1px;
+  background: radial-gradient(
+    200px circle at var(--mx, 50%) var(--my, 50%),
+    rgb(255 77 0 / 0.55),
+    transparent 55%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+.pointer-fx :is(.rounded-\[32px\], .rounded-\[36px\], .rounded-\[40px\], .card-surface):hover::before,
+.pointer-fx :is(.rounded-\[32px\], .rounded-\[36px\], .rounded-\[40px\], .card-surface):hover::after {
+  opacity: 1;
+}
+
+.nav-seg {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  border-radius: 999px;
+  border: 1px solid rgb(17 17 17 / 0.1);
+  background: rgb(250 250 248 / 0.55);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  padding: 0.3rem;
+  transition:
+    background 0.5s var(--ease-out-expo),
+    box-shadow 0.5s var(--ease-out-expo),
+    border-color 0.5s var(--ease-out-expo);
+}
+.nav-seg[data-scrolled="true"] {
+  background: rgb(250 250 248 / 0.82);
+  box-shadow: 0 14px 40px -26px rgb(17 17 17 / 0.45);
+}
+.nav-seg button {
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgb(17 17 17 / 0.5);
+  transition:
+    color 0.35s var(--ease-out-expo),
+    background 0.35s var(--ease-out-expo),
+    box-shadow 0.35s var(--ease-out-expo);
+}
+.nav-seg button:hover {
+  color: var(--color-ink);
+}
+.nav-seg button[data-active="true"] {
+  background: #ffffff;
+  color: var(--color-ink);
+  box-shadow: 0 2px 10px -2px rgb(17 17 17 / 0.14);
+}
+
+/* ------------------------------------------------ fx ------------------------------------------------ */
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-ink);
+  transform-origin: 0 50%;
+  z-index: 100;
+}
+
+.grain {
+  position: fixed;
+  inset: -20%;
+  z-index: 95;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee 52s linear infinite;
+  will-change: transform;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.pill-img {
+  display: inline-block;
+  height: 0.66em;
+  width: 1.9em;
+  border-radius: 999px;
+  overflow: hidden;
+  vertical-align: baseline;
+  transform: translateY(0.08em);
+  margin-inline: 0.06em;
+}
+.pill-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.link-line {
+  position: relative;
+}
+.link-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: 100% 50%;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+.link-line:hover::after {
+  transform: scaleX(1);
+  transform-origin: 0 50%;
+}
+
+.card-hover {
+  transition:
+    transform 0.5s var(--ease-out-expo),
+    box-shadow 0.5s var(--ease-out-expo);
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px -32px rgb(17 17 17 / 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* Glass-prism cursor — hide the native arrow only while the prism is mounted. */
+.glass-on,
+.glass-on * {
+  cursor: none !important;
+}
+.cursor-glass {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 32px;
+  pointer-events: none;
+  z-index: 9999;
+  transform-origin: 0 0;
+  clip-path: polygon(0% 0%, 3% 82%, 24% 63%, 41% 98%, 56% 90%, 39% 57%, 84% 57%);
+  background: linear-gradient(
+    135deg,
+    rgb(250 250 248 / 0.98) 0%,
+    rgb(17 17 17 / 0.9) 19%,
+    rgb(244 244 242 / 0.92) 43%,
+    rgb(255 77 0 / 0.92) 69%,
+    rgb(250 250 248 / 0.96) 100%
+  );
+  filter:
+    drop-shadow(0 0 1px rgb(0 0 0 / 0.95))
+    drop-shadow(0 2px 3px rgb(17 17 17 / 0.42))
+    drop-shadow(2px 1px 7px rgb(255 77 0 / 0.48))
+    drop-shadow(-1px -1px 5px rgb(250 250 248 / 0.7));
+  transform: translate3d(-100px, -100px, 0);
+  will-change: transform;
+}
+.cursor-glass::before {
+  content: "";
+  position: absolute;
+  inset: 1.5px;
+  clip-path: inherit;
+  background:
+    linear-gradient(145deg, rgb(250 250 248 / 0.95), transparent 29%),
+    linear-gradient(35deg, rgb(17 17 17 / 0.4), transparent 54%),
+    linear-gradient(
+      130deg,
+      rgb(244 244 242 / 0.56),
+      rgb(250 250 248 / 0.24) 48%,
+      rgb(255 77 0 / 0.44)
+    );
+  -webkit-backdrop-filter: blur(8px) saturate(135%) contrast(112%);
+  backdrop-filter: blur(8px) saturate(135%) contrast(112%);
+}
+.cursor-glass::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  clip-path: inherit;
+  background: linear-gradient(
+    112deg,
+    transparent 26%,
+    rgb(250 250 248 / 0.96) 42%,
+    transparent 55%
+  );
+  mix-blend-mode: screen;
+  opacity: 0.92;
+}
+.cursor-glass[data-hover="true"] {
+  filter:
+    drop-shadow(0 0 1px rgb(0 0 0 / 1))
+    drop-shadow(0 3px 5px rgb(17 17 17 / 0.52))
+    drop-shadow(3px 1px 9px rgb(255 77 0 / 0.72))
+    drop-shadow(-2px -1px 7px rgb(250 250 248 / 0.85));
+}
+.glass-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  overflow: hidden;
+}
+.glass-shard {
+  position: absolute;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgb(17 17 17 / 0.68),
+    rgb(250 250 248 / 0.92) 42%,
+    hsl(var(--h, 20) 100% 55% / 0.68)
+  );
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  filter:
+    drop-shadow(0 0 1px rgb(0 0 0 / 0.9))
+    drop-shadow(0 1px 2px rgb(0 0 0 / 0.45))
+    drop-shadow(0 0 7px hsl(var(--h, 20) 100% 52% / 0.72));
+  will-change: transform, opacity;
+}
+.glass-ring {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 999px;
+  border: 1.5px solid rgb(17 17 17 / 0.62);
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 0.82),
+    0 2px 10px rgb(17 17 17 / 0.3),
+    2px 0 12px rgb(255 77 0 / 0.52),
+    -2px 0 10px rgb(244 244 242 / 0.9),
+    inset 0 0 12px rgb(250 250 248 / 0.66);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  will-change: transform, opacity;
+}
+
+/* Print — the résumé document and the cursor layer drop out of the page. */
+@media print {
+  .grain,
+  .progress-bar,
+  .glass-layer,
+  .cursor-glass {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+  }
+}
+@page {
+  margin: 12mm;
+}
