@@ -35,6 +35,13 @@ export default function App() {
 
   useEffect(() => {
     if (prefersReducedMotion()) return;
+    // Don't run Lenis on the résumé page — it's a plain, natively-scrollable
+    // document (and must print cleanly). Running Lenis there and calling
+    // .stop() froze the page (Lenis intercepts the wheel), so we skip it.
+    if (window.location.hash === "#resume") {
+      setLenis(null);
+      return;
+    }
     const instance = new Lenis({ lerp: 0.09, smoothWheel: true });
     setLenis(instance);
 
@@ -53,7 +60,7 @@ export default function App() {
       gsap.ticker.remove(tick);
       instance.destroy();
     };
-  }, []);
+  }, [hash]);
 
   // Pointer FX — a warm sheen + glowing edge that chase the cursor across every
   // card and framed image, plus a magnetic pull on circular tokens and primary
@@ -110,8 +117,7 @@ export default function App() {
 
   useEffect(() => {
     if (isResume) {
-      // Native scroll + print behave reliably only when Lenis steps aside.
-      lenis?.stop();
+      // Lenis isn't created on this route, so native scroll + print just work.
       window.scrollTo(0, 0);
       document.title = "Résumé — Sunny Solanki";
     } else if (caseStudy) {
