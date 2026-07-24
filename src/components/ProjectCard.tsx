@@ -57,13 +57,26 @@ export default function ProjectCard({ project }: { project: Project }) {
             </div>
           </div>
 
-          <a 
-            href={`#case-study/${project.id}`}
-            className="inline-flex items-center gap-2 text-ink/40 font-semibold text-[14px] uppercase tracking-wider hover:text-ink transition-colors group/link"
-          >
-            Read case study 
-            <ArrowUpRight className="size-3.5 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
-          </a>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <a
+              href={`#case-study/${project.id}`}
+              className="inline-flex items-center gap-2 text-ink/40 font-semibold text-[14px] uppercase tracking-wider hover:text-ink transition-colors group/link"
+            >
+              Read case study
+              <ArrowUpRight className="size-3.5 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
+            </a>
+            {project.liveLink && (
+              <a
+                href={project.liveLink}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-accent font-semibold text-[14px] uppercase tracking-wider hover:opacity-70 transition-opacity group/live"
+              >
+                Live demo
+                <ArrowUpRight className="size-3.5 transition-transform group-hover/live:-translate-y-0.5 group-hover/live:translate-x-0.5" />
+              </a>
+            )}
+          </div>
         </div>
 
         {/* Right Side: Visual Showcase Card */}

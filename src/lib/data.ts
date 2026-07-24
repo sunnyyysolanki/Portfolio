@@ -29,6 +29,7 @@ export type Project = {
   tags: string[];
   images: string[];
   link: string;
+  liveLink?: string; // deployed app, opened in a new tab
   logo?: string;
   badge?: string;
 };
@@ -61,7 +62,8 @@ export const PROJECTS: Project[] = [
       "Built a browser-based collaborative IDE where teams write, chat, and run code together in real time. Monaco editing, cursor and file-tree sync flow over 27 REST endpoints and 11 Socket.IO events; a Gemini assistant scaffolds full MERN projects conversationally, and the WebContainer API installs and runs both the backend and frontend entirely in-browser — no local setup.",
     tags: ["React", "Node.js", "Socket.IO", "Monaco", "WebContainer", "Gemini AI"],
     images: ["/images/editor-1.jpg", "/images/editor-2.jpg"],
-    link: "https://github.com/sunnyyysolanki",
+    link: "https://github.com/sunnyyysolanki/Collab-AI",
+    liveLink: "https://collaborative-coding-seven.vercel.app",
   },
   {
     id: "fixonaut",

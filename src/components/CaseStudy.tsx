@@ -229,15 +229,30 @@ export default function CaseStudy({ project }: { project: Project }) {
                 architecture, measurable performance and interfaces that stay understandable under
                 pressure.
               </p>
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn--primary group mt-8"
-              >
-                View source or profile
-                <ArrowUpRight className="size-3.5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </a>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                {project.liveLink && (
+                  <a
+                    href={project.liveLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn btn--primary group"
+                  >
+                    View live app
+                    <ArrowUpRight className="size-3.5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </a>
+                )}
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`btn group ${project.liveLink ? "" : "btn--primary"}`}
+                >
+                  {project.link.includes("github.com")
+                    ? "View source"
+                    : "View profile"}
+                  <ArrowUpRight className="size-3.5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </a>
+              </div>
             </Reveal>
           </div>
         </section>
