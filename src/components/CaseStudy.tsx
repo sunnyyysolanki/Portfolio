@@ -152,6 +152,40 @@ export default function CaseStudy({ project }: { project: Project }) {
           </div>
         </section>
 
+        {/* Gallery — show every screenshot we have for this project (the cover
+            above is images[0], so start the gallery at [1]). */}
+        {project.images.length > 1 && (
+          <section className="container-x pb-4 md:pb-8">
+            <Reveal className="mb-8">
+              <p className="mono-label text-ink/35">Gallery</p>
+            </Reveal>
+            <div className="grid grid-cols-1 gap-8 md:gap-10">
+              {project.images.slice(1).map((src, i) => (
+                <Reveal key={src} delay={i * 0.06} y={40}>
+                  <div className="relative overflow-hidden rounded-2xl border border-white/50 bg-white p-1 shadow-[0_36px_72px_-24px_rgba(0,0,0,0.22)] md:p-1.5">
+                    {/* Browser toolbar */}
+                    <div className="mb-1.5 flex h-8 items-center gap-2 border-b border-black/5 bg-white px-4 md:h-10">
+                      <div className="size-2 rounded-full bg-black/10 md:size-2.5" />
+                      <div className="size-2 rounded-full bg-black/10 md:size-2.5" />
+                      <div className="size-2 rounded-full bg-black/10 md:size-2.5" />
+                      <div className="ml-4 h-4 w-32 rounded-md bg-black/[0.03] md:h-5 md:w-48" />
+                    </div>
+                    <div className="aspect-[16/10] w-full">
+                      <img
+                        src={src}
+                        alt={`${project.title} screenshot ${i + 2}`}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </section>
+        )}
+
         <section className="bg-ink text-paper">
           <div className="container-x py-20 md:py-28">
             <div className="grid grid-cols-1 gap-12 border-y border-paper/10 py-14 md:grid-cols-3 md:gap-8">
