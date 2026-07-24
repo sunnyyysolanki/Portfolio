@@ -133,7 +133,7 @@ export default function CaseStudy({ project }: { project: Project }) {
 
                 <div className="aspect-[16/10] w-full">
                   <img
-                    src={project.image}
+                    src={project.images[0]}
                     alt={`${project.title} case study cover`}
                     fetchPriority="high"
                     decoding="async"

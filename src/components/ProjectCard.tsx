@@ -1,9 +1,20 @@
+import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import type { Project } from "../lib/data";
 import { Reveal } from "./Reveal";
 import { cn } from "../utils/cn";
 
 export default function ProjectCard({ project }: { project: Project }) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % project.images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev === 0 ? project.images.length - 1 : prev - 1));
+  };
+
   // Use a soft theme color based on the project index
   const bgColors = ["bg-[#FDF1F8]", "bg-[#F1F6FD]", "bg-[#FDF7F1]", "bg-[#F1FDF6]", "bg-[#F7F1FD]"];
   const bgColor = bgColors[parseInt(project.index) - 1] || "bg-card";
@@ -70,27 +81,47 @@ export default function ProjectCard({ project }: { project: Project }) {
               </div>
               <div className="relative w-full h-[calc(100%-1.75rem)] rounded-lg overflow-hidden">
                 <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  key={currentImageIndex}
+                  src={project.images[currentImageIndex]} 
+                  alt={`${project.title} - Image ${currentImageIndex + 1}`}
+                  className="absolute inset-0 w-full h-full object-cover animate-in fade-in duration-500"
                 />
               </div>
            </div>
 
-           {/* Carousel Controls (Aesthetic) */}
-           <div className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 hidden md:flex size-10 lg:size-11 items-center justify-center rounded-full bg-white/40 backdrop-blur-xl border border-white/50 text-ink/30 cursor-pointer hover:bg-white hover:text-ink hover:scale-110 transition-all shadow-sm">
-              <span className="text-xl rotate-180">→</span>
-           </div>
-           <div className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 hidden md:flex size-10 lg:size-11 items-center justify-center rounded-full bg-white/40 backdrop-blur-xl border border-white/50 text-ink/30 cursor-pointer hover:bg-white hover:text-ink hover:scale-110 transition-all shadow-sm">
-              <span className="text-xl">→</span>
-           </div>
+           {/* Carousel Controls */}
+           {project.images.length > 1 && (
+             <>
+               <div 
+                 onClick={prevImage}
+                 className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 hidden md:flex size-10 lg:size-11 items-center justify-center rounded-full bg-white/40 backdrop-blur-xl border border-white/50 text-ink/80 cursor-pointer hover:bg-white hover:text-ink hover:scale-110 transition-all shadow-sm z-10"
+               >
+                  <span className="text-xl rotate-180">→</span>
+               </div>
+               <div 
+                 onClick={nextImage}
+                 className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 hidden md:flex size-10 lg:size-11 items-center justify-center rounded-full bg-white/40 backdrop-blur-xl border border-white/50 text-ink/80 cursor-pointer hover:bg-white hover:text-ink hover:scale-110 transition-all shadow-sm z-10"
+               >
+                  <span className="text-xl">→</span>
+               </div>
+             </>
+           )}
 
-           {/* Pagination dots (Aesthetic) */}
-           <div className="absolute bottom-6 flex gap-2">
-              <div className="size-1.5 rounded-full bg-ink/40" />
-              <div className="size-1.5 rounded-full bg-ink/10" />
-              <div className="size-1.5 rounded-full bg-ink/10" />
-           </div>
+           {/* Pagination dots */}
+           {project.images.length > 1 && (
+             <div className="absolute bottom-6 flex gap-2 z-10">
+                {project.images.map((_, idx) => (
+                  <div 
+                    key={idx} 
+                    onClick={() => setCurrentImageIndex(idx)}
+                    className={cn(
+                      "size-1.5 rounded-full transition-all cursor-pointer",
+                      currentImageIndex === idx ? "bg-ink/60 scale-125" : "bg-ink/20 hover:bg-ink/40"
+                    )} 
+                  />
+                ))}
+             </div>
+           )}
         </div>
       </div>
     </Reveal>

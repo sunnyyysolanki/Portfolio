@@ -27,7 +27,7 @@ export type Project = {
   role: string;
   description: string;
   tags: string[];
-  image: string;
+  images: string[];
   link: string;
   logo?: string;
   badge?: string;
@@ -54,52 +54,39 @@ export const PROJECTS: Project[] = [
     id: "editor",
     index: "02",
     title: "Collab Editor",
-    subtitle: "Real-time code editing, with AI generation",
+    subtitle: "Real-time collaborative code editor with AI",
     year: "2025",
-    role: "Case Study",
+    role: "Full-Stack Development",
     description:
-      "A multi-user Monaco editor with live sync, chat and file collaboration over Socket.IO — Node.js projects executed fully in-browser via WebContainer, with an AI assistant that scaffolds entire MERN apps conversationally.",
-    tags: ["MERN", "Socket.IO", "Monaco", "WebContainer", "AI"],
-    image: "/images/editor.jpg",
+      "Engineered a real-time collaborative IDE using React and Monaco Editor, achieving <50ms sync latency via Socket.IO and Redis pub/sub. Integrated WebContainer API to execute Node.js projects 100% in-browser, and implemented a Gemini AI assistant to scaffold full-stack MERN boilerplates conversationally.",
+    tags: ["React", "Node.js", "Socket.IO", "Monaco", "WebContainer", "Gemini AI"],
+    images: ["/images/0/1.jpg", "/images/0/2.jpg"],
     link: "https://github.com/sunnyyysolanki",
   },
   {
-    id: "commerce",
+    id: "fixonaut",
     index: "03",
-    title: "ShopStack",
-    subtitle: "Full-stack e-commerce, Spring Boot × React",
-    year: "2025",
-    role: "Development",
+    title: "Fixonaut",
+    subtitle: "Full-stack service management platform",
+    year: "2024",
+    role: "Full-Stack Development",
     description:
-      "A layered Spring Boot REST backend — controller, service, repository — with DTO mapping on Spring Data JPA and PostgreSQL, feeding a React storefront for catalog, cart, checkout and order tracking.",
-    tags: ["Java", "Spring Boot", "PostgreSQL", "React", "Axios"],
-    image: "/images/commerce.jpg",
+      "Developed a robust backend with Java 21 and Spring Boot, establishing secure REST APIs using Spring Security and JWT. Built a responsive frontend using React and TypeScript, optimizing load times by 30% with Vite. Designed a normalized PostgreSQL database on Neon ensuring sub-100ms query latency, and deployed via Docker on Render.",
+    tags: ["Java", "Spring Boot", "React", "PostgreSQL", "Docker", "JWT"],
+    images: ["/images/1/1.jpg", "/images/1/2.jpg"],
     link: "https://github.com/sunnyyysolanki",
   },
   {
-    id: "blog",
+    id: "drishti",
     index: "04",
-    title: "Inkwell",
-    subtitle: "A publishing platform on the MERN stack",
+    title: "Drishti",
+    subtitle: "AI-Powered Accessibility App",
     year: "2024",
-    role: "Case Study",
+    role: "Full-Stack AI Development",
     description:
-      "Full-stack blogging on an Express REST API with Clerk authentication, RBAC, infinite-scroll feeds and category filters — LQIP lazy-loaded images cut initial page load by ~30%.",
-    tags: ["MongoDB", "Express", "React", "Node.js", "Clerk"],
-    image: "/images/blog.jpg",
-    link: "https://github.com/sunnyyysolanki",
-  },
-  {
-    id: "bank",
-    index: "05",
-    title: "Ledger",
-    subtitle: "Core-Java banking management system",
-    year: "2024",
-    role: "Foundations",
-    description:
-      "A core-Java banking application with account creation, transactions and file-based persistence — where the fundamentals of modelling money and state were earned the hard way.",
-    tags: ["Java", "OOP", "File I/O"],
-    image: "/images/bank.jpg",
+      "Developed a mobile application using React Native and Expo to assist visually impaired users. Built a Python Flask backend integrating Google Cloud Vision API for robust optical character recognition and Text-to-Speech (TTS) for natural voice playback. Implemented multi-language detection (English, Hindi, Gujarati) with dynamic voice switching, generating concatenated audio files via pydub.",
+    tags: ["React Native", "Python", "Flask", "Google Cloud Vision", "Google TTS", "AI"],
+    images: ["/images/2/1.jpg", "/images/2/2.jpg"],
     link: "https://github.com/sunnyyysolanki",
   },
 ];
