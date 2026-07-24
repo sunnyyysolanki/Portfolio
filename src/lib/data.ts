@@ -116,34 +116,31 @@ export const STATS = [
   },
 ];
 
+// Mirrors the NetAI experience bullets on the résumé PDF, in the same order.
 export const ACHIEVEMENTS: { tag: string; text: string }[] = [
   {
     tag: "Ownership",
-    text: "Own the AWS cloud-monitoring product end to end — account onboarding, agent installation, instance metrics and alarms.",
+    text: "Owned an AWS cloud-monitoring product end to end — account onboarding, agent installation, instance metrics, and alarms.",
   },
   {
     tag: "Architecture",
-    text: "Built a tab-isolated multi-site context system — a different network site per browser tab, preventing cross-tab data leakage — now imported by 326 modules.",
-  },
-  {
-    tag: "Canvas",
-    text: "Engineered canvas rendering for the flagship force-graph (d3-force) device-topology map — ~30% of the link-drawing engine, failure-path animations with pause/resume, and sole-authored node/link tooltips.",
+    text: "Built a tab-isolated multi-site context system preventing cross-tab data leakage — now imported by 326 modules.",
   },
   {
     tag: "Performance",
-    text: "Migrated 17 charts to canvas-based ECharts and virtualized live-log views to ~30k mounted rows with debounced WebSocket batching — eliminating UI freezes under high-volume data.",
+    text: "Optimized rendering hot paths — migrated 17 charts to canvas-based ECharts and virtualized live-log views with debounced WebSocket batching — eliminating UI freezes under high-volume data.",
   },
   {
     tag: "Kubernetes",
-    text: "Led development of Kubernetes observability — cluster, node and pod dashboards with live health metrics.",
+    text: "Led development of Kubernetes observability — cluster, node, and pod dashboards with live health metrics.",
   },
   {
     tag: "AI × GTM",
-    text: "Integrated the AI support chatbot with Google Chat over Pub/Sub for live human handoff, and Apollo.io lead capture into sales and product analytics.",
+    text: "Integrated an AI support chatbot with Google Chat over Pub/Sub for live human handoff, and Apollo.io lead capture into analytics.",
   },
   {
     tag: "Security",
-    text: "Hardened client-side security with fail-closed role-based access control (RBAC) and session revocation that clears credentials on server-driven logout.",
+    text: "Hardened client-side security with fail-closed role-based access control (RBAC) and session revocation on server-driven logout.",
   },
 ];
 
