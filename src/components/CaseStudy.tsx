@@ -1,6 +1,6 @@
 import { ArrowLeft, ArrowUpRight, Asterisk } from "lucide-react";
 import { CONTACT, PROJECTS, WORK_EXPERIENCE, type Project } from "../lib/data";
-import { MaskLine, Reveal } from "./Reveal";
+import { Reveal } from "./Reveal";
 
 type StudyContent = {
   challenge: string;
@@ -98,14 +98,12 @@ export default function CaseStudy({ project }: { project: Project }) {
             </span>
           </div>
 
-          <h1 className="h-display mt-12 max-w-[12ch] md:mt-16">
-            <MaskLine>{project.title}</MaskLine>
-            <MaskLine delay={0.1}>
-              <span className="serif-i text-ink/45">{project.subtitle}</span>
-            </MaskLine>
+          <h1 className="h-display mt-8 max-w-[16ch] md:mt-10">
+            {project.title}{" "}
+            <span className="serif-i text-ink/45">{project.subtitle}</span>
           </h1>
 
-          <Reveal className="mt-12 md:mt-16" y={50}>
+          <Reveal className="mt-10 md:mt-14" y={50}>
             <div className="relative overflow-hidden rounded-[32px] bg-card p-6 shadow-inner md:p-14 lg:p-20">
               <div className="pointer-events-none absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_0%,rgba(0,0,0,0.05),transparent)]" />
 
