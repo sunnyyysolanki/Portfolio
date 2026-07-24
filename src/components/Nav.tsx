@@ -130,7 +130,12 @@ export default function Nav() {
                 <GitHubIcon className="size-[18px]" />
               </span>
             </a>
-            <a href="#resume" className="btn hidden lg:inline-flex">
+            <a
+              href="/Sunny_Solanki_FullStack_Resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="btn hidden lg:inline-flex"
+            >
               <Download className="size-3.5" />
               Resume
             </a>
@@ -185,7 +190,12 @@ export default function Nav() {
                 transition={{ delay: 0.5, duration: 0.6, ease: EASE }}
                 className="mt-10 flex flex-wrap items-center gap-3"
               >
-                <a href="#resume" className="btn">
+                <a
+                  href="/Sunny_Solanki_FullStack_Resume.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn"
+                >
                   <Download className="size-3.5" />
                   Resume
                 </a>

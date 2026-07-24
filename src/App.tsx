@@ -15,7 +15,6 @@ import Capabilities from "./components/Capabilities";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import CaseStudy from "./components/CaseStudy";
-import Resume from "./components/Resume";
 import GlassCursor from "./components/GlassCursor";
 import { PROJECTS, WORK_EXPERIENCE } from "./lib/data";
 
@@ -35,13 +34,6 @@ export default function App() {
 
   useEffect(() => {
     if (prefersReducedMotion()) return;
-    // Don't run Lenis on the résumé page — it's a plain, natively-scrollable
-    // document (and must print cleanly). Running Lenis there and calling
-    // .stop() froze the page (Lenis intercepts the wheel), so we skip it.
-    if (window.location.hash === "#resume") {
-      setLenis(null);
-      return;
-    }
     const instance = new Lenis({ lerp: 0.09, smoothWheel: true });
     setLenis(instance);
 
@@ -60,7 +52,7 @@ export default function App() {
       gsap.ticker.remove(tick);
       instance.destroy();
     };
-  }, [hash]);
+  }, []);
 
   // Pointer FX — a warm sheen + glowing edge that chase the cursor across every
   // card and framed image, plus a magnetic pull on circular tokens and primary
@@ -111,23 +103,18 @@ export default function App() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 140, damping: 30, mass: 0.4 });
 
-  const isResume = hash === "#resume";
   const caseStudyId = hash.startsWith("#case-study/") ? hash.split("/")[1] : null;
   const caseStudy = [WORK_EXPERIENCE, ...PROJECTS].find((p) => p.id === caseStudyId);
 
   useEffect(() => {
-    if (isResume) {
-      // Lenis isn't created on this route, so native scroll + print just work.
-      window.scrollTo(0, 0);
-      document.title = "Résumé — Sunny Solanki";
-    } else if (caseStudy) {
+    if (caseStudy) {
       lenis?.start();
       if (lenis) lenis.scrollTo(0, { immediate: true });
       else window.scrollTo(0, 0);
       document.title = `${caseStudy.title} — Case Study | Sunny Solanki`;
     } else {
       lenis?.start();
-      document.title = "Sunny Solanki — Full-Stack Software Engineer";
+      document.title = "Sunny Solanki — Full-Stack Java Engineer";
       if (hash && document.querySelector(hash)) {
         window.setTimeout(() => {
           if (lenis) lenis.scrollTo(hash, { duration: 1.2 });
@@ -137,17 +124,15 @@ export default function App() {
     }
     const t = window.setTimeout(() => ScrollTrigger.refresh(), 200);
     return () => window.clearTimeout(t);
-  }, [isResume, caseStudy, hash, lenis]);
+  }, [caseStudy, hash, lenis]);
 
   return (
     <MotionConfig reducedMotion="user">
       <LenisContext.Provider value={lenis}>
         <motion.div style={{ scaleX }} className="progress-bar" aria-hidden />
         <div className="grain" aria-hidden />
-        {!isResume && <GlassCursor />}
-        {isResume ? (
-          <Resume />
-        ) : caseStudy ? (
+        <GlassCursor />
+        {caseStudy ? (
           <CaseStudy project={caseStudy} />
         ) : (
           <>
