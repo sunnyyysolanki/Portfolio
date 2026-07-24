@@ -105,10 +105,12 @@ export default function CaseStudy({ project }: { project: Project }) {
             </span>
           </div>
 
-          <h1 className="h-display mt-8 max-w-[16ch] md:mt-10">
-            {project.title}{" "}
-            <span className="serif-i text-ink/45">{project.subtitle}</span>
-          </h1>
+          <div className="mt-8 md:mt-10">
+            <h1 className="h-display max-w-[16ch]">{project.title}</h1>
+            <p className="serif-i mt-3 max-w-[26ch] text-ink/45 text-[clamp(1.5rem,3vw,2.75rem)] leading-[1.15] md:mt-4">
+              {project.subtitle}
+            </p>
+          </div>
 
           <div className="relative mt-10 md:mt-14">
             <div className="relative overflow-hidden rounded-[32px] bg-card p-6 shadow-inner md:p-14 lg:p-20">
