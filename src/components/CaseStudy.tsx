@@ -1,6 +1,8 @@
-import { ArrowLeft, ArrowUpRight, Asterisk } from "lucide-react";
+import { useState } from "react";
+import { ArrowLeft, ArrowUpRight, Asterisk, ChevronLeft, ChevronRight } from "lucide-react";
 import { CONTACT, PROJECTS, WORK_EXPERIENCE, type Project } from "../lib/data";
 import { Reveal } from "./Reveal";
+import { cn } from "../utils/cn";
 
 type StudyContent = {
   challenge: string;
@@ -72,6 +74,11 @@ export default function CaseStudy({ project }: { project: Project }) {
   const currentIndex = SEQUENCE.findIndex((item) => item.id === project.id);
   const next = SEQUENCE[(currentIndex + 1) % SEQUENCE.length];
 
+  const [imgIndex, setImgIndex] = useState(0);
+  const total = project.images.length;
+  const nextImage = () => setImgIndex((p) => (p + 1) % total);
+  const prevImage = () => setImgIndex((p) => (p === 0 ? total - 1 : p - 1));
+
   return (
     <main className="min-h-screen bg-paper pb-10">
       <header className="container-x flex h-24 items-center justify-between md:h-28">
@@ -103,7 +110,7 @@ export default function CaseStudy({ project }: { project: Project }) {
             <span className="serif-i text-ink/45">{project.subtitle}</span>
           </h1>
 
-          <Reveal className="mt-10 md:mt-14" y={50}>
+          <div className="relative mt-10 md:mt-14">
             <div className="relative overflow-hidden rounded-[32px] bg-card p-6 shadow-inner md:p-14 lg:p-20">
               <div className="pointer-events-none absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_0%,rgba(0,0,0,0.05),transparent)]" />
 
@@ -118,16 +125,54 @@ export default function CaseStudy({ project }: { project: Project }) {
 
                 <div className="aspect-[16/10] w-full">
                   <img
-                    src={project.images[0]}
-                    alt={`${project.title} case study cover`}
+                    key={imgIndex}
+                    src={project.images[imgIndex]}
+                    alt={`${project.title} screenshot ${imgIndex + 1}`}
                     fetchPriority="high"
                     decoding="async"
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover animate-in fade-in duration-500"
                   />
                 </div>
               </div>
+
+              {/* Carousel controls — only when there's more than one image */}
+              {total > 1 && (
+                <>
+                  <button
+                    onClick={prevImage}
+                    aria-label="Previous image"
+                    className="absolute left-3 top-1/2 hidden -translate-y-1/2 place-items-center rounded-full border border-white/60 bg-white/70 p-2.5 text-ink/70 shadow-sm backdrop-blur-md transition-all hover:scale-110 hover:bg-white hover:text-ink md:grid md:left-6 lg:left-10"
+                  >
+                    <ChevronLeft className="size-5" />
+                  </button>
+                  <button
+                    onClick={nextImage}
+                    aria-label="Next image"
+                    className="absolute right-3 top-1/2 hidden -translate-y-1/2 place-items-center rounded-full border border-white/60 bg-white/70 p-2.5 text-ink/70 shadow-sm backdrop-blur-md transition-all hover:scale-110 hover:bg-white hover:text-ink md:grid md:right-6 lg:right-10"
+                  >
+                    <ChevronRight className="size-5" />
+                  </button>
+
+                  {/* Pagination dots */}
+                  <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2 md:bottom-8">
+                    {project.images.map((_, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setImgIndex(idx)}
+                        aria-label={`Go to image ${idx + 1}`}
+                        className={cn(
+                          "size-2 rounded-full transition-all",
+                          imgIndex === idx
+                            ? "w-6 bg-ink/70"
+                            : "bg-ink/25 hover:bg-ink/40",
+                        )}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
-          </Reveal>
+          </div>
         </section>
 
         <section className="container-x py-20 md:py-28">
@@ -149,40 +194,6 @@ export default function CaseStudy({ project }: { project: Project }) {
             </Reveal>
           </div>
         </section>
-
-        {/* Gallery — show every screenshot we have for this project (the cover
-            above is images[0], so start the gallery at [1]). */}
-        {project.images.length > 1 && (
-          <section className="container-x pb-4 md:pb-8">
-            <Reveal className="mb-8">
-              <p className="mono-label text-ink/35">Gallery</p>
-            </Reveal>
-            <div className="grid grid-cols-1 gap-8 md:gap-10">
-              {project.images.slice(1).map((src, i) => (
-                <Reveal key={src} delay={i * 0.06} y={40}>
-                  <div className="relative overflow-hidden rounded-2xl border border-white/50 bg-white p-1 shadow-[0_36px_72px_-24px_rgba(0,0,0,0.22)] md:p-1.5">
-                    {/* Browser toolbar */}
-                    <div className="mb-1.5 flex h-8 items-center gap-2 border-b border-black/5 bg-white px-4 md:h-10">
-                      <div className="size-2 rounded-full bg-black/10 md:size-2.5" />
-                      <div className="size-2 rounded-full bg-black/10 md:size-2.5" />
-                      <div className="size-2 rounded-full bg-black/10 md:size-2.5" />
-                      <div className="ml-4 h-4 w-32 rounded-md bg-black/[0.03] md:h-5 md:w-48" />
-                    </div>
-                    <div className="aspect-[16/10] w-full">
-                      <img
-                        src={src}
-                        alt={`${project.title} screenshot ${i + 2}`}
-                        loading="lazy"
-                        decoding="async"
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </section>
-        )}
 
         <section className="bg-ink text-paper">
           <div className="container-x py-20 md:py-28">
