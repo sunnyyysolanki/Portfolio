@@ -182,7 +182,7 @@ export const SKILL_GROUPS = [
     id: "c.05",
     title: "Data & Cloud",
     span: "lg:col-span-7",
-    items: ["PostgreSQL", "MySQL", "MongoDB", "AWS — EC2", "AWS — CloudWatch", "GCP Pub/Sub"],
+    items: ["PostgreSQL", "MySQL", "MongoDB", "GCP Pub/Sub"],
   },
   {
     id: "c.06",
@@ -200,7 +200,7 @@ export const MARQUEE = [
   "Node.js",
   "Next.js",
   "PostgreSQL",
-  "AWS",
+  "MySQL",
   "Socket.IO",
   "ECharts",
   "MongoDB",
