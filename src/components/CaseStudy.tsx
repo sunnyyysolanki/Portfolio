@@ -25,54 +25,41 @@ const CONTENT: Record<string, StudyContent> = {
   },
   editor: {
     challenge:
-      "Collaborative coding tools often fragment editing, conversation, execution and AI assistance into separate contexts.",
+      "Collaborative coding tools fragment editing, conversation, execution and AI assistance into separate contexts — and most can't actually run a full-stack app without local setup.",
     approach:
-      "I brought Monaco, Socket.IO and WebContainer into one synchronized workspace, then designed the AI flow to generate complete MERN scaffolds and individual files conversationally.",
+      "I unified Monaco, a Socket.IO realtime layer and the WebContainer API into one synchronized workspace, then designed a Gemini flow that scaffolds complete MERN projects conversationally and merges the generated files into the tree. The runner detects both the backend and frontend, installs and starts each, and lets you preview either from switchable URLs.",
     outcome:
-      "Teams can write, discuss, generate and run Node.js projects together without leaving the browser or losing project context.",
+      "Teams write, chat, generate and run Node.js and MERN projects together — backend and frontend both live in the browser — with no local environment at all.",
     metrics: [
-      { value: "Live", label: "multi-user synchronization" },
+      { value: "27", label: "REST endpoints" },
+      { value: "11", label: "realtime socket events" },
       { value: "0", label: "local setup required" },
-      { value: "MERN", label: "generated application stack" },
     ],
   },
-  commerce: {
+  fixonaut: {
     challenge:
-      "Commerce flows demand clear domain boundaries while keeping catalog, cart, checkout and order states consistent across the client and server.",
+      "Small repair businesses juggle customers, technicians, appointments, parts and payments across calls and spreadsheets, with no single source of truth or safe data isolation between organizations.",
     approach:
-      "The backend follows a controller-service-repository architecture with DTO mapping and PostgreSQL persistence, exposed through a focused REST contract consumed by React Query and Axios.",
+      "I built a multi-tenant SaaS on Spring Boot and Java 21 — Spring Security with JWT plus rotating refresh tokens, four-role RBAC, org-level isolation derived from the authenticated user, a service-request state machine that rejects invalid transitions, and transactional inventory that never goes negative.",
     outcome:
-      "A maintainable foundation for product discovery and order management, built to grow without coupling interface decisions to persistence details.",
+      "A production-shaped field-service platform running the full service-request-to-invoice workflow, containerized with Docker and deployed on Vercel, Render and Neon with CI.",
     metrics: [
-      { value: "3", label: "backend architecture layers" },
-      { value: "REST", label: "client-server contract" },
-      { value: "SQL", label: "durable order data" },
+      { value: "26", label: "Flyway DB migrations" },
+      { value: "4", label: "role access levels" },
+      { value: "JWT", label: "refresh-token auth" },
     ],
   },
-  blog: {
+  drishti: {
     challenge:
-      "A publishing feed must feel immediate even when content, images, permissions and filters are all resolved dynamically.",
+      "Visually impaired users need to read printed text on the go, across multiple languages, without complex apps or setup.",
     approach:
-      "I combined Clerk authentication and RBAC with indexed filters, infinite pagination and low-quality image placeholders that progressively reveal full media.",
+      "I built a React Native + Expo app backed by a Python Flask service that runs Google Cloud Vision OCR and Text-to-Speech, with multi-language detection (English, Hindi, Gujarati), dynamic voice switching and concatenated audio playback via pydub.",
     outcome:
-      "The platform delivers a fast, permission-aware reading and publishing experience with a significantly lighter initial page load.",
+      "A pocket accessibility tool that turns a phone camera into a natural-sounding, multilingual reader for everyday printed text.",
     metrics: [
-      { value: "~30%", label: "faster initial load" },
-      { value: "LQIP", label: "progressive image delivery" },
-      { value: "RBAC", label: "role-aware publishing" },
-    ],
-  },
-  bank: {
-    challenge:
-      "Financial state is unforgiving: account balances and transaction histories must remain predictable through every operation.",
-    approach:
-      "I modelled accounts, transactions and persistence as explicit Java objects, emphasizing encapsulation, validation and deterministic file I/O.",
-    outcome:
-      "A focused banking system that established the object-oriented and state-management foundations behind my later full-stack work.",
-    metrics: [
-      { value: "Java", label: "core application language" },
-      { value: "OOP", label: "domain modelling" },
-      { value: "I/O", label: "file-based persistence" },
+      { value: "3", label: "languages supported" },
+      { value: "OCR", label: "Cloud Vision recognition" },
+      { value: "TTS", label: "natural voice playback" },
     ],
   },
 };

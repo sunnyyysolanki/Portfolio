@@ -45,7 +45,7 @@ export const WORK_EXPERIENCE: Project = {
   description:
     "Engineering the world's first GNN-powered AIOps platform. Owning an AWS cloud-monitoring product end to end — from account onboarding and agent installation to real-time d3-force topology maps and high-volume Kubernetes dashboards.",
   tags: ["React", "TypeScript", "AWS", "ECharts", "d3-force", "WebSockets"],
-  image: "/images/netai.jpg",
+  images: ["/images/netai.jpg"],
   link: "https://netai.ai",
 };
 
@@ -53,14 +53,14 @@ export const PROJECTS: Project[] = [
   {
     id: "editor",
     index: "02",
-    title: "Collab Editor",
+    title: "NexCode",
     subtitle: "Real-time collaborative code editor with AI",
     year: "2025",
     role: "Full-Stack Development",
     description:
-      "Engineered a real-time collaborative IDE using React and Monaco Editor, achieving <50ms sync latency via Socket.IO and Redis pub/sub. Integrated WebContainer API to execute Node.js projects 100% in-browser, and implemented a Gemini AI assistant to scaffold full-stack MERN boilerplates conversationally.",
+      "Built a browser-based collaborative IDE where teams write, chat, and run code together in real time. Monaco editing, cursor and file-tree sync flow over 27 REST endpoints and 11 Socket.IO events; a Gemini assistant scaffolds full MERN projects conversationally, and the WebContainer API installs and runs both the backend and frontend entirely in-browser — no local setup.",
     tags: ["React", "Node.js", "Socket.IO", "Monaco", "WebContainer", "Gemini AI"],
-    images: ["/images/0/1.jpg", "/images/0/2.jpg"],
+    images: ["/images/editor-1.jpg", "/images/editor-2.jpg"],
     link: "https://github.com/sunnyyysolanki",
   },
   {
@@ -73,7 +73,7 @@ export const PROJECTS: Project[] = [
     description:
       "Developed a robust backend with Java 21 and Spring Boot, establishing secure REST APIs using Spring Security and JWT. Built a responsive frontend using React and TypeScript, optimizing load times by 30% with Vite. Designed a normalized PostgreSQL database on Neon ensuring sub-100ms query latency, and deployed via Docker on Render.",
     tags: ["Java", "Spring Boot", "React", "PostgreSQL", "Docker", "JWT"],
-    images: ["/images/1/1.jpg", "/images/1/2.jpg"],
+    images: ["/images/commerce.jpg"],
     link: "https://github.com/sunnyyysolanki",
   },
   {
@@ -86,7 +86,7 @@ export const PROJECTS: Project[] = [
     description:
       "Developed a mobile application using React Native and Expo to assist visually impaired users. Built a Python Flask backend integrating Google Cloud Vision API for robust optical character recognition and Text-to-Speech (TTS) for natural voice playback. Implemented multi-language detection (English, Hindi, Gujarati) with dynamic voice switching, generating concatenated audio files via pydub.",
     tags: ["React Native", "Python", "Flask", "Google Cloud Vision", "Google TTS", "AI"],
-    images: ["/images/2/1.jpg", "/images/2/2.jpg"],
+    images: ["/images/blog.jpg"],
     link: "https://github.com/sunnyyysolanki",
   },
 ];
