@@ -99,7 +99,7 @@ export default function Life() {
 
           <Reveal delay={0.4} y={20}>
             <h3 className="mt-12 text-[clamp(3.5rem,6vw,5.5rem)] font-bold leading-none tracking-tighter">
-              Life in nutshell
+              The ethos
             </h3>
           </Reveal>
         </div>
