@@ -79,13 +79,20 @@ export default function Hero() {
             className="aspect-[16/10] max-h-[560px] shadow-2xl shadow-ink/5 sm:aspect-[16/8] lg:aspect-[16/8]"
           />
 
-          {/* Work-ethic quote in white — a soft dark scrim at the top keeps it
-              readable over the light image. */}
-          <div className="pointer-events-none absolute inset-x-0 top-0 z-10 rounded-t-[36px] bg-gradient-to-b from-black/45 via-black/20 to-transparent px-6 pb-24 pt-8 text-center md:pt-11">
-            <p className="text-[clamp(1.5rem,2.7vw,2.5rem)] font-semibold leading-tight tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]">
+          {/* Work-ethic quote, centered over the image. A soft radial scrim
+              darkens just behind the text so white reads while the image edges
+              stay bright. */}
+          <div
+            className="pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-center rounded-[36px] px-6 text-center"
+            style={{
+              background:
+                "radial-gradient(ellipse 68% 52% at 50% 50%, rgba(0,0,0,0.36), transparent 72%)",
+            }}
+          >
+            <p className="text-[clamp(2.1rem,4.2vw,4rem)] font-semibold leading-tight tracking-wide text-white drop-shadow-[0_2px_18px_rgba(0,0,0,0.55)]">
               योगः कर्मसु कौशलम्
             </p>
-            <p className="mt-2 text-[10px] font-medium uppercase tracking-[0.3em] text-white/75">
+            <p className="mt-3.5 text-[11px] font-medium uppercase tracking-[0.34em] text-white/80 drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)] md:text-xs">
               Excellence in action · Bhagavad Gita 2.50
             </p>
           </div>
