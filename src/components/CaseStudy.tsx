@@ -39,17 +39,17 @@ const CONTENT: Record<string, StudyContent> = {
       { value: "0", label: "local setup required" },
     ],
   },
-  fixonaut: {
+  linkforge: {
     challenge:
-      "Small repair businesses juggle customers, technicians, appointments, parts and payments across calls and spreadsheets, with no single source of truth or safe data isolation between organizations.",
+      "A URL shortener is trivial CRUD until you look at its traffic: reads outnumber writes about 100:1, a handful of links take most of the volume, and every read is a redirect a human is waiting on. Three things pull against each other — never hit the database on the hot path, never coordinate between nodes to mint a code, and stay correct when the cache disappears.",
     approach:
-      "I built a multi-tenant SaaS on Spring Boot and Java 21 — Spring Security with JWT plus rotating refresh tokens, four-role RBAC, org-level isolation derived from the authenticated user, a service-request state machine that rejects invalid transitions, and transactional inventory that never goes negative.",
+      "Codes come from ID blocks leased 10,000 at a time in a single atomic statement, then permuted through a Feistel network before base62 — bijective, so there is no collision check or retry anywhere, and sequential IDs still produce unguessable codes. Reads go Caffeine → Redis → Postgres with negative caching for scanners, a single-flight guard against cache stampedes, invalidation broadcast over Redis pub/sub, and a circuit breaker that degrades to Postgres. Clicks never block a redirect: they land on a bounded in-memory queue, pipeline into a Redis stream, and a consumer group batch-writes them into month-partitioned tables.",
     outcome:
-      "A production-shaped field-service platform running the full service-request-to-invoice workflow, containerized with Docker and deployed on Vercel, Render and Neon with CI.",
+      "Three interchangeable nodes behind nginx, a React dashboard with live click counts over STOMP, and a rate limiter evaluated atomically in Redis Lua ahead of the whole security chain. Verified end to end against real Postgres and Redis.",
     metrics: [
-      { value: "26", label: "Flyway DB migrations" },
-      { value: "4", label: "role access levels" },
-      { value: "JWT", label: "refresh-token auth" },
+      { value: "0", label: "DB reads on a cache hit" },
+      { value: "10k", label: "IDs leased per round trip" },
+      { value: "44", label: "end-to-end assertions passing" },
     ],
   },
   drishti: {
