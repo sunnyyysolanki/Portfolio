@@ -12,13 +12,13 @@ export default function Life() {
   return (
     <section className="container-x section-pad overflow-hidden">
       <div className="grid grid-cols-12 items-start gap-8 lg:gap-12">
-        {/* Left Side: Nom Nom Nom Card */}
+        {/* Left Side: "Off the clock" personal card */}
         <Reveal className="col-span-12 lg:col-span-5" y={30}>
           <div className="card-surface group relative overflow-hidden rounded-[40px] p-8 md:p-10">
             <h2 className="mb-8 text-[clamp(3rem,6vw,4.5rem)] font-bold leading-[0.9] tracking-tighter">
-              Nom nom
+              Off the
               <br />
-              Nom
+              clock
               <span className="inline-block transition-transform duration-500 group-hover:translate-x-3">
                 →
               </span>
@@ -60,7 +60,7 @@ export default function Life() {
             </div>
 
             <p className="text-xl font-medium leading-relaxed text-ink/60">
-              A big fan of making things which make me happy, be on my desktop or kitchen :P
+              A builder at heart — happiest shipping code, modding a mechanical keyboard, or climbing the ranked ladder.
             </p>
           </div>
         </Reveal>
@@ -70,13 +70,14 @@ export default function Life() {
           <Reveal delay={0.2}>
             <div className="max-w-2xl space-y-5">
               <p className="text-[19px] font-medium leading-[1.5] text-ink/50">
-                Design, for me, is more than creating screens, it&rsquo;s about creating meaning. I
-                am fascinated by how design can quietly shape behavior, solve real-world problems,
-                and make complex things feel simple.
+                Engineering, for me, is more than shipping features &mdash; it&rsquo;s about building
+                systems that are reliable, maintainable, and genuinely solve the problem. I sweat the
+                details: clean architecture, fast interfaces, and code the next person can actually read.
               </p>
               <p className="text-[19px] font-medium leading-[1.5] text-ink/50">
-                What drives me is the curiosity to understand deeply, the joy of collaboration, and
-                the challenge of designing with intention.
+                Away from the editor I&rsquo;m usually tinkering &mdash; modding a keyboard, chasing a
+                rank, or training at the gym. Same loop that pulls me through code: understand it deeply,
+                iterate, and build something people rely on.
               </p>
             </div>
           </Reveal>
