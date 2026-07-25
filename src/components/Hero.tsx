@@ -72,11 +72,11 @@ export default function Hero() {
         <div className="group relative">
           <ParallaxImage
             src="/images/hero.jpg"
-            alt="Sunny Solanki Portfolio Identity"
+            alt="Sunny Solanki — Full-Stack Java Engineer"
             priority
             speed={10}
             sizes="(min-width: 1560px) 1320px, 92vw"
-            className="aspect-[16/10] max-h-[500px] shadow-2xl shadow-ink/5 sm:aspect-[16/8] lg:aspect-[16/5.5]"
+            className="aspect-[16/10] max-h-[560px] shadow-2xl shadow-ink/5 sm:aspect-[16/8] lg:aspect-[16/8]"
           />
           <div className="pointer-events-none absolute inset-0 rounded-[36px] ring-1 ring-inset ring-ink/5" />
 
