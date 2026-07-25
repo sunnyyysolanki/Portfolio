@@ -3,7 +3,6 @@ import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { CONTACT } from "../lib/data";
 import { useLenis } from "../lib/lenis";
 import { MaskLine, Reveal } from "./Reveal";
-import ParallaxImage from "./ParallaxImage";
 
 export default function Hero() {
   const lenis = useLenis();
@@ -70,34 +69,19 @@ export default function Hero() {
 
       <Reveal y={60} delay={0.8} className="mt-10 md:mt-14">
         <div className="group relative">
-          <ParallaxImage
-            src="/images/hero.jpg"
-            alt="Sunny Solanki — Full-Stack Java Engineer"
-            priority
-            speed={10}
-            sizes="(min-width: 1560px) 1320px, 92vw"
-            className="aspect-[16/10] max-h-[560px] shadow-2xl shadow-ink/5 sm:aspect-[16/8] lg:aspect-[16/8]"
-          />
-
-          {/* Work-ethic quote, centered over the image. A soft radial scrim
-              darkens just behind the text so white reads while the image edges
-              stay bright. */}
-          <div
-            className="pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-center rounded-[36px] px-6 text-center"
-            style={{
-              background:
-                "radial-gradient(ellipse 68% 52% at 50% 50%, rgba(0,0,0,0.36), transparent 72%)",
-            }}
-          >
-            <p className="text-[clamp(2.1rem,4.2vw,4rem)] font-semibold leading-tight tracking-wide text-white drop-shadow-[0_2px_18px_rgba(0,0,0,0.55)]">
-              योगः कर्मसु कौशलम्
-            </p>
-            <p className="mt-3.5 text-[11px] font-medium uppercase tracking-[0.34em] text-white/80 drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)] md:text-xs">
-              Excellence in action · Bhagavad Gita 2.50
-            </p>
+          {/* Plain image (no parallax bleed) so the baked-in quote near the
+              left edge is never clipped. Wide, short banner. */}
+          <div className="relative aspect-[16/11] max-h-[520px] overflow-hidden rounded-[36px] shadow-2xl shadow-ink/5 sm:aspect-[16/8] lg:aspect-[16/7]">
+            <img
+              src="/images/hero.jpg"
+              alt="Sunny Solanki — योगः कर्मसु कौशलम् (Excellence in action)"
+              fetchPriority="high"
+              decoding="async"
+              sizes="(min-width: 1560px) 1320px, 92vw"
+              className="h-full w-full object-cover object-center"
+            />
+            <div className="pointer-events-none absolute inset-0 rounded-[36px] ring-1 ring-inset ring-ink/5" />
           </div>
-
-          <div className="pointer-events-none absolute inset-0 rounded-[36px] ring-1 ring-inset ring-ink/5" />
 
           <div className="mt-8 flex flex-col justify-between gap-6 px-1 md:flex-row md:items-center">
             <div className="flex items-center gap-6">
