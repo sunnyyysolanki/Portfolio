@@ -78,11 +78,11 @@ export default function Experience() {
                   <div className="size-1.5 rounded-full bg-black/10" />
                   <div className="size-1.5 rounded-full bg-black/10" />
                 </div>
-                <div className="relative w-full h-[calc(100%-1.75rem)] rounded-lg overflow-hidden">
-                  <img 
-                    src={exp.image} 
+                <div className="relative w-full h-[calc(100%-1.75rem)] rounded-lg overflow-hidden bg-white">
+                  <img
+                    src={exp.images[0]}
                     alt={exp.title}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 h-full w-full object-contain p-8 md:p-12"
                   />
                 </div>
             </div>

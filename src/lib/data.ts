@@ -46,7 +46,7 @@ export const WORK_EXPERIENCE: Project = {
   description:
     "Engineering the world's first GNN-powered AIOps platform. Owning an AWS cloud-monitoring product end to end — from account onboarding and agent installation to real-time d3-force topology maps and high-volume Kubernetes dashboards.",
   tags: ["React", "TypeScript", "AWS", "ECharts", "d3-force", "WebSockets"],
-  images: ["/images/netai.jpg"],
+  images: ["/images/netai-logo.png"],
   link: "https://netai.ai",
 };
 
