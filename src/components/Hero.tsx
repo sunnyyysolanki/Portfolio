@@ -67,39 +67,23 @@ export default function Hero() {
         </div>
       </div>
 
-      <Reveal y={60} delay={0.8} className="mt-10 md:mt-14">
-        <div className="group relative">
-          {/* Plain image (no parallax bleed) so the baked-in quote near the
-              left edge is never clipped. Wide, short banner. */}
-          <div className="relative aspect-[16/11] max-h-[520px] overflow-hidden rounded-[36px] shadow-2xl shadow-ink/5 sm:aspect-[16/8] lg:aspect-[16/7]">
-            <img
-              src="/images/hero.jpg"
-              alt="Sunny Solanki — योगः कर्मसु कौशलम् (Excellence in action)"
-              fetchPriority="high"
-              decoding="async"
-              sizes="(min-width: 1560px) 1320px, 92vw"
-              className="h-full w-full object-cover object-center"
-            />
-            <div className="pointer-events-none absolute inset-0 rounded-[36px] ring-1 ring-inset ring-ink/5" />
+      <Reveal y={40} delay={0.5} className="mt-12 md:mt-16">
+        <div className="flex flex-col justify-between gap-6 border-t border-ink/10 px-1 pt-7 md:flex-row md:items-center">
+          <div className="flex items-center gap-6">
+            <span className="mono-label text-ink/40">Portfolio Volume 01 — 2026</span>
+            <span className="hidden h-px w-12 bg-ink/10 sm:block" />
+            <span className="mono-label text-ink/40">Focused on Scale & Performance</span>
           </div>
-
-          <div className="mt-8 flex flex-col justify-between gap-6 px-1 md:flex-row md:items-center">
-            <div className="flex items-center gap-6">
-              <span className="mono-label text-ink/40">Portfolio Volume 01 — 2026</span>
-              <span className="hidden h-px w-12 bg-ink/10 sm:block" />
-              <span className="mono-label text-ink/40">Focused on Scale & Performance</span>
-            </div>
-            <span className="mono-label hidden items-center gap-3 text-ink/30 italic sm:flex">
-              Scroll to begin
-              <motion.span
-                animate={{ y: [0, 5, 0] }}
-                transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-                className="inline-flex"
-              >
-                <ArrowDown className="size-3.5" />
-              </motion.span>
-            </span>
-          </div>
+          <span className="mono-label hidden items-center gap-3 text-ink/30 italic sm:flex">
+            Scroll to begin
+            <motion.span
+              animate={{ y: [0, 5, 0] }}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+              className="inline-flex"
+            >
+              <ArrowDown className="size-3.5" />
+            </motion.span>
+          </span>
         </div>
       </Reveal>
     </section>

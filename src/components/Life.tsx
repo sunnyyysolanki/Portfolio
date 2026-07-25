@@ -105,15 +105,15 @@ export default function Life() {
         </div>
       </div>
 
-      {/* Massive Landscape Image Below */}
+      {/* Wide quote banner (image has the śloka baked in). */}
       <Reveal className="mt-12 md:mt-16" y={40}>
-        <div className="group relative aspect-[21/7] max-h-[400px] w-full overflow-hidden rounded-[32px]">
+        <div className="relative aspect-[16/7] max-h-[440px] w-full overflow-hidden rounded-[32px] shadow-xl shadow-ink/5">
           <img
-            src="/images/life-3.jpg"
-            alt="Life Landscape"
-            className="h-full w-full object-cover transition-transform duration-[2000ms] group-hover:scale-105"
+            src="/images/hero.jpg"
+            alt="योगः कर्मसु कौशलम् — Excellence in action (Bhagavad Gita 2.50)"
+            className="h-full w-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+          <div className="pointer-events-none absolute inset-0 rounded-[32px] ring-1 ring-inset ring-ink/5" />
         </div>
       </Reveal>
     </section>
