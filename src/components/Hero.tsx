@@ -78,6 +78,18 @@ export default function Hero() {
             sizes="(min-width: 1560px) 1320px, 92vw"
             className="aspect-[16/10] max-h-[560px] shadow-2xl shadow-ink/5 sm:aspect-[16/8] lg:aspect-[16/8]"
           />
+
+          {/* Work-ethic quote in white — a soft dark scrim at the top keeps it
+              readable over the light image. */}
+          <div className="pointer-events-none absolute inset-x-0 top-0 z-10 rounded-t-[36px] bg-gradient-to-b from-black/45 via-black/20 to-transparent px-6 pb-24 pt-8 text-center md:pt-11">
+            <p className="text-[clamp(1.5rem,2.7vw,2.5rem)] font-semibold leading-tight tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]">
+              योगः कर्मसु कौशलम्
+            </p>
+            <p className="mt-2 text-[10px] font-medium uppercase tracking-[0.3em] text-white/75">
+              Excellence in action · Bhagavad Gita 2.50
+            </p>
+          </div>
+
           <div className="pointer-events-none absolute inset-0 rounded-[36px] ring-1 ring-inset ring-ink/5" />
 
           <div className="mt-8 flex flex-col justify-between gap-6 px-1 md:flex-row md:items-center">
