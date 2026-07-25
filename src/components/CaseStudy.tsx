@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { ArrowLeft, ArrowUpRight, Asterisk, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Asterisk, ChevronLeft, ChevronRight, Expand } from "lucide-react";
 import { CONTACT, PROJECTS, WORK_EXPERIENCE, type Project } from "../lib/data";
 import { Reveal } from "./Reveal";
+import Lightbox from "./Lightbox";
 import { cn } from "../utils/cn";
 
 type StudyContent = {
@@ -75,6 +76,7 @@ export default function CaseStudy({ project }: { project: Project }) {
   const next = SEQUENCE[(currentIndex + 1) % SEQUENCE.length];
 
   const [imgIndex, setImgIndex] = useState(0);
+  const [zoomOpen, setZoomOpen] = useState(false);
   const total = project.images.length;
   const nextImage = () => setImgIndex((p) => (p + 1) % total);
   const prevImage = () => setImgIndex((p) => (p === 0 ? total - 1 : p - 1));
@@ -125,7 +127,12 @@ export default function CaseStudy({ project }: { project: Project }) {
                   <div className="ml-4 h-4 w-32 rounded-md bg-black/[0.03] md:h-5 md:w-48" />
                 </div>
 
-                <div className="aspect-[16/10] w-full">
+                <button
+                  type="button"
+                  onClick={() => setZoomOpen(true)}
+                  aria-label={`Zoom ${project.title} screenshot`}
+                  className="group/zoom relative block aspect-[16/10] w-full cursor-zoom-in overflow-hidden"
+                >
                   <img
                     key={imgIndex}
                     src={project.images[imgIndex]}
@@ -134,7 +141,10 @@ export default function CaseStudy({ project }: { project: Project }) {
                     decoding="async"
                     className="h-full w-full object-cover animate-in fade-in duration-500"
                   />
-                </div>
+                  <span className="absolute right-3 top-3 grid size-9 place-items-center rounded-full bg-ink/40 text-white opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover/zoom:opacity-100">
+                    <Expand className="size-4" />
+                  </span>
+                </button>
               </div>
 
               {/* Carousel controls — only when there's more than one image */}
@@ -290,6 +300,15 @@ export default function CaseStudy({ project }: { project: Project }) {
           {CONTACT.email}
         </a>
       </footer>
+
+      <Lightbox
+        open={zoomOpen}
+        images={project.images}
+        index={imgIndex}
+        onIndexChange={setImgIndex}
+        onClose={() => setZoomOpen(false)}
+        title={project.title}
+      />
     </main>
   );
 }

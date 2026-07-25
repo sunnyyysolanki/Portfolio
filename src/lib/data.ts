@@ -61,7 +61,16 @@ export const PROJECTS: Project[] = [
     description:
       "Built a browser-based collaborative IDE on a Spring Boot backend (Spring Data MongoDB, JWT, Redis) exposing 27 REST endpoints and 11 real-time Socket.IO events (netty-socketio) — driving sub-100ms multi-user code, cursor and file-tree sync in a React + Monaco frontend. A Gemini assistant scaffolds full projects conversationally, executed entirely in-browser via the WebContainer API — no local setup.",
     tags: ["Java", "Spring Boot", "MongoDB", "Redis", "React", "Socket.IO"],
-    images: ["/images/editor-1.jpg", "/images/editor-2.jpg"],
+    // editor-3: live collaboration chat + @ai command + WebContainer install logs
+    // editor-4: the AI-generated app running live in the in-browser preview
+    // editor-1: project dashboard (workspace context)
+    // editor-2: @ai assistant — build-projects-instantly onboarding
+    images: [
+      "/images/editor-3.jpg",
+      "/images/editor-4.jpg",
+      "/images/editor-1.jpg",
+      "/images/editor-2.jpg",
+    ],
     link: "https://github.com/sunnyyysolanki/Collab-AI",
     liveLink: "https://collaborative-coding-seven.vercel.app",
   },

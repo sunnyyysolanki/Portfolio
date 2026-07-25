@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Expand } from "lucide-react";
 import type { Project } from "../lib/data";
 import { Reveal } from "./Reveal";
+import Lightbox from "./Lightbox";
 import { cn } from "../utils/cn";
 
 export default function ProjectCard({ project }: { project: Project }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [zoomOpen, setZoomOpen] = useState(false);
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % project.images.length);
@@ -92,14 +94,23 @@ export default function ProjectCard({ project }: { project: Project }) {
                 <div className="size-1.5 rounded-full bg-black/10" />
                 <div className="size-1.5 rounded-full bg-black/10" />
               </div>
-              <div className="relative w-full h-[calc(100%-1.75rem)] rounded-lg overflow-hidden">
-                <img 
+              <button
+                type="button"
+                onClick={() => setZoomOpen(true)}
+                aria-label={`Zoom ${project.title} screenshot`}
+                className="group/zoom relative block w-full h-[calc(100%-1.75rem)] rounded-lg overflow-hidden cursor-zoom-in"
+              >
+                <img
                   key={currentImageIndex}
-                  src={project.images[currentImageIndex]} 
+                  src={project.images[currentImageIndex]}
                   alt={`${project.title} - Image ${currentImageIndex + 1}`}
                   className="absolute inset-0 w-full h-full object-cover animate-in fade-in duration-500"
                 />
-              </div>
+                {/* Zoom affordance on hover */}
+                <span className="absolute right-2.5 top-2.5 grid size-8 place-items-center rounded-full bg-ink/40 text-white opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover/zoom:opacity-100">
+                  <Expand className="size-4" />
+                </span>
+              </button>
            </div>
 
            {/* Carousel Controls */}
@@ -137,6 +148,15 @@ export default function ProjectCard({ project }: { project: Project }) {
            )}
         </div>
       </div>
+
+      <Lightbox
+        open={zoomOpen}
+        images={project.images}
+        index={currentImageIndex}
+        onIndexChange={setCurrentImageIndex}
+        onClose={() => setZoomOpen(false)}
+        title={project.title}
+      />
     </Reveal>
   );
 }
