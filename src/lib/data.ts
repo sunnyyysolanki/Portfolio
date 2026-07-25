@@ -93,21 +93,23 @@ export const PROJECTS: Project[] = [
   },
 ];
 
+// Career-at-a-glance — deliberately NOT the NetAI role metrics (those live in
+// the Experience section) to avoid duplication.
 export const STATS = [
   {
-    value: "326",
-    unit: "modules",
-    note: "import the tab-isolated multi-site context system",
+    value: "1+",
+    unit: "years",
+    note: "production engineering at NetAI, shipping to real users",
   },
   {
-    value: "17",
-    unit: "charts",
-    note: "migrated to canvas ECharts, with ~30k-row virtualized logs",
+    value: "3",
+    unit: "projects",
+    note: "full-stack apps built and deployed end to end",
   },
   {
-    value: "~30%",
-    unit: "engine share",
-    note: "of the flagship link-drawing engine, sole-authored",
+    value: "2",
+    unit: "backends",
+    note: "the same real-time IDE, built in both Java Spring Boot and Node.js",
   },
   {
     value: "9.6",

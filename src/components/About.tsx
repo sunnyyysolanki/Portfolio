@@ -8,7 +8,7 @@ const DETAILS = [
   { key: "Role", value: "Software Engineer — NetAI" },
   { key: "Base", value: "Ahmedabad · India" },
   { key: "Education", value: "B.Tech Computer Science" },
-  { key: "Focus", value: "Real-time interfaces, at scale" },
+  { key: "Focus", value: "Java, Spring Boot & scalable APIs" },
 ];
 
 export default function About() {
@@ -38,9 +38,9 @@ export default function About() {
             </p>
             <p className="text-lead text-ink/55">
               My happy place is the seam between backend rigour and frontend polish — designing the
-              REST contract, modelling the data, then obsessing over canvas frame budgets until a
-              30,000-row live view scrolls like{" "}
-              <span className="serif-i text-[1.12em] text-ink/80">butter.</span>
+              REST contract, modelling the domain and tuning the queries, then sweating the details
+              on the interface until it just feels{" "}
+              <span className="serif-i text-[1.12em] text-ink/80">fast.</span>
             </p>
           </Reveal>
 
