@@ -6,8 +6,8 @@ import { cn } from "../utils/cn";
 
 const META = [
   { key: "Company", value: "NetAI Pvt. Ltd." },
-  { key: "Product", value: "AWS cloud monitoring" },
-  { key: "Stack", value: "React · TypeScript · AWS" },
+  { key: "Product", value: "AI network observability platform" },
+  { key: "Stack", value: "React · TypeScript · ECharts" },
   { key: "Tenure", value: "Apr 2025 — Present" },
   { key: "Base", value: "Ahmedabad · India" },
 ];
