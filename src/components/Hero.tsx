@@ -48,10 +48,10 @@ export default function Hero() {
         <div className="col-span-12 md:col-span-8 lg:col-span-6">
           <Reveal delay={0.6}>
             <p className="text-balance text-[clamp(1.25rem,1.8vw,1.625rem)] leading-[1.5] tracking-tight text-ink/80">
-              Full-stack Java engineer building high-performance products with{" "}
-              <span className="font-semibold text-ink">Java, Spring Boot</span> and React.
-              Currently engineering AWS cloud-monitoring tools at{" "}
-              <span className="serif-i text-accent/90">NetAI</span>.
+              Software Engineer with 1+ year of frontend development experience building scalable Java
+              full-stack applications using <span className="font-semibold text-ink">Spring Boot</span>{" "}
+              and <span className="font-semibold text-ink">React</span>. Currently shipping
+              monitoring products at <span className="serif-i text-accent/90">NetAI</span>.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <button onClick={goToWork} className="btn btn--primary group">
