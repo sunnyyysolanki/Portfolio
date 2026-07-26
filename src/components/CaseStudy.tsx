@@ -52,19 +52,6 @@ const CONTENT: Record<string, StudyContent> = {
       { value: "44", label: "end-to-end assertions passing" },
     ],
   },
-  drishti: {
-    challenge:
-      "Visually impaired users need to read printed text on the go, across multiple languages, without complex apps or setup.",
-    approach:
-      "I built a React Native + Expo app backed by a Python Flask service that runs Google Cloud Vision OCR and Text-to-Speech, with multi-language detection (English, Hindi, Gujarati), dynamic voice switching and concatenated audio playback via pydub.",
-    outcome:
-      "A pocket accessibility tool that turns a phone camera into a natural-sounding, multilingual reader for everyday printed text.",
-    metrics: [
-      { value: "3", label: "languages supported" },
-      { value: "OCR", label: "Cloud Vision recognition" },
-      { value: "TTS", label: "natural voice playback" },
-    ],
-  },
 };
 
 // Unified reading order so "Next case study" chains work from any entry.

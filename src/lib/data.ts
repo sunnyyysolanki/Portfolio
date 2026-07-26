@@ -95,19 +95,6 @@ export const PROJECTS: Project[] = [
     link: "https://github.com/sunnyyysolanki/LinkForge",
     liveLink: "https://link-forge-puce.vercel.app",
   },
-  {
-    id: "drishti",
-    index: "04",
-    title: "Drishti",
-    subtitle: "AI-Powered Accessibility App",
-    year: "2024",
-    role: "Full-Stack AI Development",
-    description:
-      "Developed a mobile application using React Native and Expo to assist visually impaired users. Built a Python Flask backend integrating Google Cloud Vision API for robust optical character recognition and Text-to-Speech (TTS) for natural voice playback. Implemented multi-language detection (English, Hindi, Gujarati) with dynamic voice switching, generating concatenated audio files via pydub.",
-    tags: ["React Native", "Python", "Flask", "Google Cloud Vision", "Google TTS", "AI"],
-    images: ["/images/blog.jpg"],
-    link: "https://github.com/sunnyyysolanki",
-  },
 ];
 
 // Career-at-a-glance — deliberately NOT the NetAI role metrics (those live in
@@ -119,7 +106,7 @@ export const STATS = [
     note: "production engineering at NetAI, shipping to real users",
   },
   {
-    value: "3",
+    value: "2",
     unit: "projects",
     note: "full-stack apps built and deployed end to end",
   },
