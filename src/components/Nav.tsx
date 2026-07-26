@@ -131,7 +131,7 @@ export default function Nav() {
               </span>
             </a>
             <a
-              href="/Sunny_Solanki_FullStack_Resume.pdf"
+              href="/Sunny_Solanki_Java_Full_Stack_Resume.pdf"
               target="_blank"
               rel="noreferrer"
               className="btn hidden lg:inline-flex"
@@ -191,7 +191,7 @@ export default function Nav() {
                 className="mt-10 flex flex-wrap items-center gap-3"
               >
                 <a
-                  href="/Sunny_Solanki_FullStack_Resume.pdf"
+                  href="/Sunny_Solanki_Java_Full_Stack_Resume.pdf"
                   target="_blank"
                   rel="noreferrer"
                   className="btn"
