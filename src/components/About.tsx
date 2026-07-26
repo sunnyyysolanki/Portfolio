@@ -31,10 +31,10 @@ export default function About() {
         <div className="col-span-12 flex flex-col gap-10 lg:col-span-7">
           <Reveal className="flex max-w-[38rem] flex-col gap-7">
             <p className="text-lead text-ink/70">
-              Full-stack Java engineer with production experience building{" "}
-              <span className="font-medium text-ink">Spring Boot</span> backends and{" "}
-              <span className="font-medium text-ink">React</span> frontends — currently shipping an
-              AWS cloud-monitoring product end to end at NetAI.
+              Software Engineer with 1+ year of industry experience and hands-on expertise in
+              building scalable full-stack applications using React, Java, Spring Boot, Redis,
+              PostgreSQL, and modern backend technologies. Strong foundation in distributed
+              systems, security, caching, and performance optimization.
             </p>
             <p className="text-lead text-ink/55">
               My happy place is the seam between backend rigour and frontend polish — designing the
