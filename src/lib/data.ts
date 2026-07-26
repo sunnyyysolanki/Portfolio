@@ -42,7 +42,7 @@ export const WORK_EXPERIENCE: Project = {
   year: "Apr 2025 — Present",
   role: "Software Engineer",
   badge: "Current Role",
-  logo: "https://www.google.com/s2/favicons?domain=netai.ai&sz=128",
+  logo: "/images/netai-wordmark.png",
   description:
     "Engineering the world's first GNN-powered AIOps platform. Owning an AWS cloud-monitoring product end to end — from account onboarding and agent installation to real-time d3-force topology maps and high-volume Kubernetes dashboards.",
   tags: ["React", "TypeScript", "AWS", "ECharts", "d3-force", "WebSockets"],
@@ -58,6 +58,7 @@ export const PROJECTS: Project[] = [
     subtitle: "Real-time collaborative code editor with AI",
     year: "2025",
     role: "Full-Stack Development",
+    logo: "/images/nexcode-logo.png",
     description:
       "Built a browser-based collaborative IDE on a Spring Boot backend (Spring Data MongoDB, JWT, Redis) exposing 27 REST endpoints and 11 real-time Socket.IO events (netty-socketio) — driving sub-100ms multi-user code, cursor and file-tree sync in a React + Monaco frontend. A Gemini assistant scaffolds full projects conversationally, executed entirely in-browser via the WebContainer API — no local setup.",
     tags: ["Java", "Spring Boot", "MongoDB", "Redis", "React", "Socket.IO"],
@@ -81,13 +82,15 @@ export const PROJECTS: Project[] = [
     subtitle: "Distributed URL shortener",
     year: "2026",
     role: "Backend & Full-Stack Development",
+    logo: "/images/linkforge-logo.png",
     description:
       "Built a URL shortener designed around its traffic shape — reads outnumber writes ~100:1, and the read is a redirect someone is waiting on. A cache hit never touches the database: requests go through a two-tier Caffeine + Redis cache with cross-node invalidation over pub/sub and a circuit breaker that degrades to Postgres instead of failing. Short codes are minted from leased ID blocks and a Feistel permutation, so creating a link costs zero extra round trips and needs no collision check. Clicks are buffered off the hot path into a Redis stream and batch-written into month-partitioned tables, with live counts pushed to a React dashboard over STOMP.",
     tags: ["Java 21", "Spring Boot", "Redis", "PostgreSQL", "React", "Docker"],
     // TODO: replace with real screenshots of the running dashboard —
     // /images/linkforge-1.jpg … -4.jpg (dashboard, links, link analytics, login).
     images: ["/images/commerce.jpg"],
-    link: "https://github.com/sunnyyysolanki",
+    link: "https://github.com/sunnyyysolanki/LinkForge",
+    liveLink: "https://linkforge.vercel.app",
   },
   {
     id: "drishti",
