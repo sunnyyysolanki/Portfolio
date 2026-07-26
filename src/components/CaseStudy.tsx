@@ -90,7 +90,7 @@ export default function CaseStudy({ project }: { project: Project }) {
               <span className="mono-label text-accent">Case study {project.index}</span>
             </div>
             <span className="mono-label text-ink/35">
-              {project.year} · {project.role}
+              {project.role}
             </span>
           </div>
 

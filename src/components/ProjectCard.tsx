@@ -43,7 +43,7 @@ export default function ProjectCard({ project }: { project: Project }) {
               {project.title}
             </h3>
             <p className="text-ink/40 font-medium text-[14px] lg:text-[15px] mb-8">
-              {project.role} <span className="mx-1.5 opacity-30">·</span> {project.year}
+              {project.role}
             </p>
             
             <p className="text-[15px] lg:text-[16px] leading-[1.6] text-ink/60 mb-8 max-w-[32ch]">
