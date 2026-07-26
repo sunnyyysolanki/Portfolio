@@ -93,6 +93,11 @@ img {
 }
 @media (min-width: 1024px) {
   .container-x {
+    padding-inline: 32px;
+  }
+}
+@media (min-width: 1280px) {
+  .container-x {
     padding-inline: 80px;
   }
 }
@@ -192,8 +197,8 @@ section[id] {
   align-items: center;
   gap: 0.55rem;
   border-radius: 999px;
-  padding: 0.72rem 1.4rem;
-  font-size: 0.72rem;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -210,6 +215,12 @@ section[id] {
     box-shadow 0.45s var(--ease-out-expo),
     transform 0.2s var(--ease-out-expo),
     translate 0.22s var(--ease-out-expo);
+}
+@media (min-width: 1280px) {
+  .btn {
+    padding: 0.72rem 1.4rem;
+    font-size: 0.72rem;
+  }
 }
 .btn:hover {
   background: var(--color-ink);
@@ -319,8 +330,8 @@ section[id] {
 }
 .nav-seg button {
   border-radius: 999px;
-  padding: 0.5rem 1rem;
-  font-size: 0.68rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.64rem;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -329,6 +340,12 @@ section[id] {
     color 0.35s var(--ease-out-expo),
     background 0.35s var(--ease-out-expo),
     box-shadow 0.35s var(--ease-out-expo);
+}
+@media (min-width: 1280px) {
+  .nav-seg button {
+    padding: 0.5rem 1.1rem;
+    font-size: 0.68rem;
+  }
 }
 .nav-seg button:hover {
   color: var(--color-ink);
