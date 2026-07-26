@@ -111,11 +111,6 @@ export const STATS = [
     note: "full-stack apps built and deployed end to end",
   },
   {
-    value: "2",
-    unit: "backends",
-    note: "the same real-time IDE, built in both Java Spring Boot and Node.js",
-  },
-  {
     value: "9.6",
     unit: "CGPA",
     note: "B.Tech Computer Science — Indus University",
@@ -166,12 +161,6 @@ export const SKILL_GROUPS = [
       "Flyway",
       "REST APIs",
     ],
-  },
-  {
-    id: "c.03",
-    title: "Backend — Node",
-    span: "lg:col-span-5",
-    items: ["Node.js", "Express", "Socket.IO"],
   },
   {
     id: "c.04",
