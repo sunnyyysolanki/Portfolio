@@ -201,7 +201,6 @@ export const SKILL_GROUPS = [
       "MySQL",
       "MongoDB",
       "Caffeine",
-      "Table partitioning",
       "GCP Pub/Sub",
     ],
   },
