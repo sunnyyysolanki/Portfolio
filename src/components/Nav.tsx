@@ -56,7 +56,7 @@ export default function Nav() {
   }, [open, lenis]);
 
   useEffect(() => {
-    const mq = window.matchMedia("(min-width: 1024px)");
+    const mq = window.matchMedia("(min-width: 1280px)");
     const onChange = (e: MediaQueryListEvent) => {
       if (e.matches) setOpen(false);
     };
@@ -103,7 +103,7 @@ export default function Nav() {
           </button>
 
           {/* Center — segmented control pill with a raised active chip. */}
-          <nav className="nav-seg hidden lg:flex" data-scrolled={scrolled}>
+          <nav className="nav-seg hidden xl:flex" data-scrolled={scrolled}>
             {NAV_LINKS.map((link) => (
               <button
                 key={link.href}
@@ -124,7 +124,7 @@ export default function Nav() {
               target="_blank"
               rel="noreferrer"
               aria-label="Open GitHub"
-              className="btn-icon hidden lg:grid"
+              className="btn-icon hidden xl:grid"
             >
               <span className="inline-flex">
                 <GitHubIcon className="size-[18px]" />
@@ -134,18 +134,18 @@ export default function Nav() {
               href="/Sunny_Solanki_Java_Full_Stack_Resume.pdf"
               target="_blank"
               rel="noreferrer"
-              className="btn hidden lg:inline-flex"
+              className="btn hidden xl:inline-flex"
             >
               <Download className="size-3.5" />
               Resume
             </a>
-            <a href={CONTACT.emailHref} className="btn hidden lg:inline-flex">
+            <a href={CONTACT.emailHref} className="btn hidden xl:inline-flex">
               Get in touch
             </a>
             <button
               onClick={() => setOpen((v) => !v)}
               aria-label={open ? "Close menu" : "Open menu"}
-              className="btn-icon lg:hidden"
+              className="btn-icon xl:hidden"
             >
               <Plus className={cn("transition-transform duration-500", open && "rotate-45")} />
             </button>
