@@ -86,11 +86,14 @@ export const PROJECTS: Project[] = [
     description:
       "Built a URL shortener designed around its traffic shape — reads outnumber writes ~100:1, and the read is a redirect someone is waiting on. A cache hit never touches the database: requests go through a two-tier Caffeine + Redis cache with cross-node invalidation over pub/sub and a circuit breaker that degrades to Postgres instead of failing. Short codes are minted from leased ID blocks and a Feistel permutation, so creating a link costs zero extra round trips and needs no collision check. Clicks are buffered off the hot path into a Redis stream and batch-written into month-partitioned tables, with live counts pushed to a React dashboard over STOMP.",
     tags: ["Java 21", "Spring Boot", "Redis", "PostgreSQL", "React", "Docker"],
-    // TODO: replace with real screenshots of the running dashboard —
-    // /images/linkforge-1.jpg … -4.jpg (dashboard, links, link analytics, login).
-    images: ["/images/commerce.jpg"],
+    images: [
+      "/images/linkforge-1.jpg",
+      "/images/linkforge-4.jpg",
+      "/images/linkforge-2.jpg",
+      "/images/linkforge-3.jpg",
+    ],
     link: "https://github.com/sunnyyysolanki/LinkForge",
-    liveLink: "https://linkforge.vercel.app",
+    liveLink: "https://link-forge-puce.vercel.app",
   },
   {
     id: "drishti",
