@@ -164,6 +164,7 @@ export const SKILL_GROUPS = [
       "Spring Security",
       "JWT",
       "JDBC",
+      "Flyway",
       "REST APIs",
     ],
   },
@@ -207,7 +208,6 @@ export const SKILL_GROUPS = [
     items: [
       "Docker",
       "Maven",
-      "Flyway",
     ],
   },
 ];
