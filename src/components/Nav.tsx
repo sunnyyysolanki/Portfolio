@@ -90,14 +90,14 @@ export default function Nav() {
             className={cn(
               "flex shrink-0 items-center gap-2.5 rounded-full transition-all duration-500",
               scrolled
-                ? "border border-ink/10 bg-paper/70 px-3 py-2 shadow-[0_10px_30px_-18px_rgba(17,17,17,0.45)] backdrop-blur-md"
+                ? "border border-ink/10 bg-paper/70 p-1.5 min-[480px]:px-3 min-[480px]:py-2 shadow-[0_10px_30px_-18px_rgba(17,17,17,0.45)] backdrop-blur-md"
                 : "border border-transparent",
             )}
           >
-            <span className="grid size-8 place-items-center rounded-full bg-ink text-paper">
+            <span className="grid size-8 place-items-center rounded-full bg-ink text-paper shrink-0">
               <span className="font-serif text-[15px] italic leading-none">S</span>
             </span>
-            <span className="text-[12px] font-semibold uppercase tracking-[0.22em]">
+            <span className="hidden min-[480px]:inline-block whitespace-nowrap text-[12px] font-semibold uppercase tracking-[0.22em]">
               Sunny Solanki
             </span>
           </button>
