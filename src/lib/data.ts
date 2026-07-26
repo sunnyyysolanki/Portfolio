@@ -163,7 +163,6 @@ export const SKILL_GROUPS = [
       "Hibernate",
       "Spring Security",
       "JWT",
-      "JDBC",
       "Flyway",
       "REST APIs",
     ],
