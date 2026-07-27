@@ -50,7 +50,7 @@ export default function Hero() {
             <p className="text-balance text-[clamp(1.25rem,1.8vw,1.625rem)] leading-[1.5] tracking-tight text-ink/80">
               Software Engineer with 1+ year of frontend development experience building scalable Java
               full-stack applications using <span className="font-semibold text-ink">Spring Boot</span>{" "}
-              and <span className="font-semibold text-ink">React</span>. Currently shipping
+              and <span className="font-semibold text-ink">React</span>. Previously shipped
               monitoring products at <span className="serif-i text-accent/90">NetAI</span>.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">

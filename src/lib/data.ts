@@ -39,9 +39,8 @@ export const WORK_EXPERIENCE: Project = {
   index: "01",
   title: "NetAI",
   subtitle: "AI-powered network observability",
-  year: "Apr 2025 — Present",
+  year: "Apr 2025 — Jul 2026",
   role: "Software Engineer",
-  badge: "Current Role",
   logo: "/images/netai-wordmark.png",
   description:
     "Engineering the world's first GNN-powered AIOps platform. Owning an AWS cloud-monitoring product end to end — from account onboarding and agent installation to real-time d3-force topology maps and high-volume Kubernetes dashboards.",

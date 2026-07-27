@@ -66,7 +66,7 @@ export default function Contact() {
                   <ArrowUpRight className="size-6 shrink-0 text-accent transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1" />
                 </a>
                 <p className="mt-8 max-w-[44ch] text-[15px] leading-relaxed text-paper/50">
-                  Currently shipping at NetAI, always up for a good problem. Whether it&rsquo;s a
+                  Previously shipped at NetAI, always up for a good problem. Whether it&rsquo;s a
                   role, a project, or just a hard bug worth talking about — the inbox is open.
                 </p>
               </div>

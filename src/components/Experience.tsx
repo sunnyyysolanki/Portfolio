@@ -8,7 +8,7 @@ const META = [
   { key: "Company", value: "NetAI Pvt. Ltd." },
   { key: "Product", value: "AI network observability platform" },
   { key: "Stack", value: "React · TypeScript · ECharts" },
-  { key: "Tenure", value: "Apr 2025 — Present" },
+  { key: "Tenure", value: "Apr 2025 — Jul 2026" },
   { key: "Base", value: "Ahmedabad · India" },
 ];
 
@@ -34,9 +34,11 @@ export default function Experience() {
                   )}
                   <span className="mono-label text-ink tracking-widest">{exp.title}</span>
                 </div>
-                <span className="inline-flex items-center rounded-full bg-accent/5 px-3 py-1 text-[9px] font-bold tracking-tighter text-accent uppercase border border-accent/10">
-                  {exp.badge}
-                </span>
+                {exp.badge && (
+                  <span className="inline-flex items-center rounded-full bg-accent/5 px-3 py-1 text-[9px] font-bold tracking-tighter text-accent uppercase border border-accent/10">
+                    {exp.badge}
+                  </span>
+                )}
               </div>
               
               <h3 className="text-[28px] lg:text-[32px] font-semibold tracking-tight leading-[1.15] mb-2">
