@@ -97,25 +97,8 @@ export default function Life() {
             ))}
           </div>
 
-          <Reveal delay={0.4} y={20}>
-            <h3 className="mt-12 text-[clamp(3.5rem,6vw,5.5rem)] font-bold leading-none tracking-tighter">
-              The ethos
-            </h3>
-          </Reveal>
         </div>
       </div>
-
-      {/* Wide quote banner (image has the śloka baked in). */}
-      <Reveal className="mt-12 md:mt-16" y={40}>
-        <div className="relative aspect-[16/7] max-h-[440px] w-full overflow-hidden rounded-[32px] shadow-xl shadow-ink/5">
-          <img
-            src="/images/hero.jpg"
-            alt="योगः कर्मसु कौशलम् — Excellence in action (Bhagavad Gita 2.50)"
-            className="h-full w-full object-cover object-center"
-          />
-          <div className="pointer-events-none absolute inset-0 rounded-[32px] ring-1 ring-inset ring-ink/5" />
-        </div>
-      </Reveal>
     </section>
   );
 }
