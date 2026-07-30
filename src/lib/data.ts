@@ -1,3 +1,5 @@
+import type { BrandName } from "../components/BrandIcons";
+
 export const NAV_LINKS = [
   { index: "01", label: "Profile", href: "#about" },
   { index: "02", label: "Work", href: "#work" },
@@ -15,8 +17,24 @@ export const CONTACT = {
   linkedinLabel: "/in/sunnyyysolanki",
   github: "https://github.com/sunnyyysolanki",
   githubLabel: "/sunnyyysolanki",
+  leetcode: "https://leetcode.com/u/sunnyyysolanki",
+  leetcodeLabel: "/u/sunnyyysolanki",
   location: "Ahmedabad — India",
 };
+
+/** The résumé PDF sits in public/; the nav and the hero both point at this one path. */
+export const RESUME_PATH = "/Sunny_Solanki_Resume.pdf";
+
+/** The hero's TECHNOLOGIES strip, in reading order. Labels come from BRANDS. */
+export const HERO_TECH: BrandName[] = ["java", "spring", "react", "postgresql", "redis"];
+
+/** The hero's CONNECT block, in reading order. The Résumé link is appended in the Hero,
+ *  since it points at a file rather than a profile. */
+export const SOCIAL_LINKS: { brand: BrandName; href: string }[] = [
+  { brand: "linkedin", href: CONTACT.linkedin },
+  { brand: "github", href: CONTACT.github },
+  { brand: "leetcode", href: CONTACT.leetcode },
+];
 
 export type Project = {
   id: string;
@@ -38,13 +56,13 @@ export const WORK_EXPERIENCE: Project = {
   id: "netai",
   index: "01",
   title: "NetAI",
-  subtitle: "AI-powered network observability",
+  subtitle: "AI-powered network monitoring platform",
   year: "Apr 2025 — Jul 2026",
   role: "Software Engineer",
   logo: "/images/netai-wordmark.png",
   description:
-    "Engineering the world's first GNN-powered AIOps platform. Owning an AWS cloud-monitoring product end to end — from account onboarding and agent installation to real-time d3-force topology maps and high-volume Kubernetes dashboards.",
-  tags: ["React", "TypeScript", "AWS", "ECharts", "d3-force", "WebSockets"],
+    "Owned the frontend for the platform's AWS cloud-monitoring module — account onboarding, agent installation, and the metrics/alarms pipeline UI — then led Kubernetes observability: cluster, node and pod dashboards with 2D cluster topology visualization, backed by live health-metric ingestion and WebSocket-driven real-time alerts.",
+  tags: ["React", "TypeScript", "AWS", "ECharts", "react-force-graph", "WebSockets"],
   images: ["/images/netai-logo.png"],
   link: "https://netai.ai",
 };
@@ -59,8 +77,8 @@ export const PROJECTS: Project[] = [
     role: "Full-Stack Development",
     logo: "/images/nexcode-logo.png",
     description:
-      "Built a browser-based collaborative IDE on a Spring Boot backend (Spring Data MongoDB, JWT, Redis) exposing 27 REST endpoints and 11 real-time Socket.IO events (netty-socketio) — driving sub-100ms multi-user code, cursor and file-tree sync in a React + Monaco frontend. A Gemini assistant scaffolds full projects conversationally, executed entirely in-browser via the WebContainer API — no local setup.",
-    tags: ["Java", "Spring Boot", "MongoDB", "Redis", "React", "Socket.IO"],
+      "Built a browser-based collaborative IDE on a Spring Boot backend (Spring Data MongoDB, JWT, Redis) exposing 27 REST endpoints and a real-time layer of 11 STOMP WebSocket channels — driving sub-100ms multi-user code, cursor and file-tree sync in a React + Monaco frontend. A Gemini assistant scaffolds full projects conversationally, executed entirely in-browser via the WebContainer API — no local setup.",
+    tags: ["Java", "Spring Boot", "MongoDB", "Redis", "React", "WebSockets"],
     // editor-3: live collaboration chat + @ai command + WebContainer install logs
     // editor-4: the AI-generated app running live in the in-browser preview
     // editor-1: project dashboard (workspace context)
@@ -116,35 +134,32 @@ export const STATS = [
   },
 ];
 
-// Mirrors the NetAI experience bullets on the résumé PDF, in the same order.
+// Mirrors the NetAI experience bullets on the résumé PDF, in the same order. Keep these
+// in step with Sunny_Solanki_Resume.pdf — the wording is deliberately verbatim.
 export const ACHIEVEMENTS: { tag: string; text: string }[] = [
   {
     tag: "Ownership",
-    text: "Owned an AWS cloud-monitoring product end to end — account onboarding, agent installation, instance metrics, and alarms.",
+    text: "Owned the frontend for the platform's AWS cloud-monitoring module — built account onboarding, agent installation, and the metrics/alarms pipeline UI.",
   },
   {
     tag: "Architecture",
-    text: "Built a tab-isolated multi-site context system preventing cross-tab data leakage — now imported by 326 modules.",
+    text: "Designed a tab-isolated multi-site context system now adopted across 326 modules, eliminating a class of cross-tab data-leakage bugs.",
   },
   {
     tag: "Performance",
-    text: "Optimized rendering hot paths — migrated 17 charts to canvas-based ECharts and virtualized live-log views with debounced WebSocket batching — eliminating UI freezes under high-volume data.",
+    text: "Identified rendering bottlenecks and introduced canvas-based charting (ECharts) and list virtualization to the product for the first time — migrating 17 dashboard charts and virtualizing live-log views with debounced WebSocket batching, eliminating multi-second UI freezes under high-volume streams.",
   },
   {
     tag: "Kubernetes",
-    text: "Led development of Kubernetes observability — cluster, node, and pod dashboards with live health metrics.",
+    text: "Led Kubernetes observability development — cluster, node, and pod dashboards with 2D cluster topology visualization (react-force-graph, D3), backed by live health-metric ingestion and WebSocket-driven real-time alert delivery.",
   },
   {
-    tag: "AI × GTM",
-    text: "Integrated an AI support chatbot with Google Chat over Pub/Sub for live human handoff, and Apollo.io lead capture into analytics.",
-  },
-  {
-    tag: "Security",
-    text: "Hardened client-side security with fail-closed role-based access control (RBAC) and session revocation on server-driven logout.",
+    tag: "AI × Security",
+    text: "Integrated an AI support chatbot with Google Chat over Pub/Sub for live human handoff, and hardened access with fail-closed RBAC and server-driven session revocation.",
   },
 ];
 
-export const LANGUAGES = ["Java", "TypeScript", "JavaScript", "SQL"];
+export const LANGUAGES = ["Java", "JavaScript", "TypeScript", "SQL"];
 
 export const SKILL_GROUPS = [
   {
@@ -173,6 +188,8 @@ export const SKILL_GROUPS = [
       "React Query",
       "Tailwind CSS",
       "ECharts",
+      "D3.js",
+      "react-force-graph",
       "WebSockets",
     ],
   },
@@ -195,7 +212,23 @@ export const SKILL_GROUPS = [
     items: [
       "Docker",
       "Maven",
+      "Git",
+      "GitHub Actions",
+      "Postman",
+      "Swagger",
     ],
+  },
+  {
+    id: "c.07",
+    title: "Testing",
+    span: "lg:col-span-5",
+    items: ["JUnit"],
+  },
+  {
+    id: "c.08",
+    title: "AI-Assisted Development",
+    span: "lg:col-span-7",
+    items: ["GitHub Copilot", "Claude", "Cursor"],
   },
 ];
 
@@ -212,5 +245,5 @@ export const MARQUEE = [
   "TypeScript",
   "REST APIs",
   "WebSockets",
-  "Prometheus",
+  "MongoDB",
 ];

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUp, ArrowUpRight } from "lucide-react";
-import { CONTACT } from "../lib/data";
+import { CONTACT, RESUME_PATH } from "../lib/data";
 import { useLenis } from "../lib/lenis";
 import { useIST } from "../lib/hooks";
 import { MaskLine, Reveal } from "./Reveal";
@@ -8,6 +8,10 @@ import { MaskLine, Reveal } from "./Reveal";
 const ROWS = [
   { key: "LinkedIn", value: CONTACT.linkedinLabel, href: CONTACT.linkedin },
   { key: "GitHub", value: CONTACT.githubLabel, href: CONTACT.github },
+  { key: "LeetCode", value: CONTACT.leetcodeLabel, href: CONTACT.leetcode },
+  // Carries the résumé for anyone who has scrolled past the hero — the nav no longer
+  // holds a copy, and this is the last section before the footer.
+  { key: "Résumé", value: "Download PDF", href: RESUME_PATH },
   { key: "Phone", value: CONTACT.phone, href: CONTACT.phoneHref },
   { key: "Location", value: CONTACT.location, href: null },
 ];

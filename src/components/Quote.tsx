@@ -15,9 +15,12 @@ export default function Quote() {
           <Asterisk className="size-7 text-accent" strokeWidth={1.75} />
         </motion.span>
 
+        {/* Quoted verbatim from the résumé summary, since the caption below attributes it
+            there. The previous wording was written for the site and appeared nowhere in
+            the PDF, which made the attribution false. */}
         <blockquote className="mt-10 font-serif text-[clamp(1.7rem,3.5vw,3.25rem)] italic leading-[1.18] tracking-[-0.01em] text-ink">
-          &ldquo;Comfortable owning features end to end — from REST APIs and database design through
-          responsive front-end delivery.&rdquo;
+          &ldquo;Strong foundation in distributed systems, REST API design, caching architecture,
+          application security, and performance optimization.&rdquo;
         </blockquote>
 
         <p className="mono-label mt-10 text-ink/40">( Summary — Résumé, 2026 )</p>

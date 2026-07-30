@@ -19,7 +19,11 @@ export default function Works() {
           </MaskLine>
         </h2>
         <Reveal delay={0.1}>
-          <span className="mono-label hidden pb-2 text-ink/40 md:block">( 04 items )</span>
+          {/* Derived, not typed: this read "04" while two cards rendered below it. */}
+          <span className="mono-label hidden pb-2 text-ink/40 md:block">
+            ({" "}
+            {String(PROJECTS.length).padStart(2, "0")} items )
+          </span>
         </Reveal>
       </div>
 

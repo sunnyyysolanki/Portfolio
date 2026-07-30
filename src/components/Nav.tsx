@@ -6,7 +6,7 @@ import {
   useScroll,
 } from "framer-motion";
 import { ArrowUpRight, Download, Plus } from "lucide-react";
-import { CONTACT, NAV_LINKS } from "../lib/data";
+import { CONTACT, NAV_LINKS, RESUME_PATH } from "../lib/data";
 import { useLenis } from "../lib/lenis";
 import { EASE } from "./Reveal";
 import { cn } from "../utils/cn";
@@ -116,29 +116,13 @@ export default function Nav() {
             ))}
           </nav>
 
-          {/* Right — GitHub token + Resume pill + Contact pill on desktop;
-              the plus (menu) appears on mobile only. */}
+          {/* Right — Contact pill on desktop; the plus (menu) appears on mobile only.
+              GitHub and Résumé used to sit here too, but the hero's CONNECT block now
+              carries both a few hundred pixels below, so on a desktop first paint the
+              same two links appeared twice on one screen. They stay reachable: GitHub and
+              LeetCode in the Contact section, the résumé in CONNECT, and both in the
+              mobile menu below, which is an overlay and so never doubles up on screen. */}
           <div className="flex shrink-0 items-center gap-2.5">
-            <a
-              href={CONTACT.github}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Open GitHub"
-              className="btn-icon hidden lg:grid"
-            >
-              <span className="inline-flex">
-                <GitHubIcon className="size-[18px]" />
-              </span>
-            </a>
-            <a
-              href="/Sunny_Solanki_Java_Full_Stack_Resume.pdf"
-              target="_blank"
-              rel="noreferrer"
-              className="btn hidden lg:inline-flex"
-            >
-              <Download className="size-3.5" />
-              Resume
-            </a>
             <a href={CONTACT.emailHref} className="btn hidden lg:inline-flex">
               Get in touch
             </a>
@@ -191,7 +175,7 @@ export default function Nav() {
                 className="mt-10 flex flex-wrap items-center gap-3"
               >
                 <a
-                  href="/Sunny_Solanki_Java_Full_Stack_Resume.pdf"
+                  href={RESUME_PATH}
                   target="_blank"
                   rel="noreferrer"
                   className="btn"

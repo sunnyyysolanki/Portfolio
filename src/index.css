@@ -111,6 +111,17 @@ img {
   padding-top: clamp(60px, 8vw, 100px);
 }
 
+/* Every twelve-column grid in the page stacks to a single column below `md`, so the
+   column gutter does no work there — but eleven 2rem gaps still reserve 352px, which is
+   more than the 328px of content a 360px phone has. The row then overflows and the page
+   clips text at the right edge. Drop the gutter until the columns actually sit side by
+   side. Row gaps are untouched. */
+@media (max-width: 767px) {
+  .grid-cols-12 {
+    column-gap: 0;
+  }
+}
+
 /* Keep anchored sections clear of the fixed nav pill. */
 section[id] {
   scroll-margin-top: 96px;
@@ -123,6 +134,14 @@ section[id] {
   letter-spacing: -0.045em;
   line-height: 0.94;
   font-size: clamp(3.4rem, 7.7vw, 6.875rem);
+}
+
+/* The hero headline is additionally bounded by viewport height. Sized on width alone it
+   overshoots on a laptop — three lines at 110px push the portrait and the closing rule
+   past the fold, so the figure gets cut mid-torso. The vh term only bites once the window
+   is shorter than ~950px; on taller screens the width-based size still wins. */
+.h-display--hero {
+  font-size: clamp(3.4rem, min(7.7vw, 11.5vh), 6.875rem);
 }
 
 .h-section {
@@ -242,6 +261,21 @@ section[id] {
   box-shadow: 0 8px 22px -12px rgb(17 17 17 / 0.4);
 }
 
+/* Filled primary action. Keeps the pill radius the rest of the site speaks in rather than
+   the reference's rounded rectangle, so it still reads as a sibling of the nav pills
+   directly above it. Must follow `.btn:hover`, which it overrides on equal specificity. */
+.btn--solid {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  border-color: var(--color-ink);
+  box-shadow: 0 10px 26px -14px rgb(17 17 17 / 0.55);
+}
+.btn--solid:hover {
+  background: transparent;
+  color: var(--color-ink);
+  border-color: rgb(17 17 17 / 0.3);
+}
+
 .btn-icon {
   display: grid;
   place-items: center;
@@ -268,6 +302,31 @@ section[id] {
 .btn-icon > svg {
   width: 1rem;
   height: 1rem;
+}
+
+/* Circular token for the hero's CONNECT row. Deliberately not `.btn-icon`, which inverts
+   to a solid ink fill on hover — that would swallow marks carrying their own brand colour
+   (GitHub's near-black would disappear into it). This lifts and sharpens instead, leaving
+   the logo untouched. */
+.icon-token {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  border: 1px solid rgb(17 17 17 / 0.12);
+  background: rgb(255 255 255 / 0.6);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition:
+    transform 0.45s var(--ease-out-expo),
+    border-color 0.45s var(--ease-out-expo),
+    box-shadow 0.45s var(--ease-out-expo);
+}
+.group:hover > .icon-token {
+  transform: translateY(-3px);
+  border-color: rgb(17 17 17 / 0.28);
+  box-shadow: 0 12px 26px -16px rgb(17 17 17 / 0.55);
 }
 
 /* Pointer spotlight — a warm sheen + glowing edge that chase the cursor across
@@ -414,6 +473,32 @@ section[id] {
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+
+/* On a phone the headline's first line — "Full-Stack" plus this pill — is wider than the
+   column, and MaskLine's overflow-hidden slices the pill down the middle. It is a
+   flourish, not content, so below `sm` it steps aside instead of being served cut. */
+@media (max-width: 639px) {
+  .pill-img {
+    display: none;
+  }
+}
+
+/* Hero portrait — a background-free cutout, so it wears no frame like the other images.
+   The source photo already dissolves the jacket downwards, but it does that in colour,
+   fading to white while staying fully opaque. Left alone that lays a faint pale haze over
+   the paper, so the mask repeats the same ramp in alpha and carries it to nothing at the
+   bottom edge. Stops match where the photo's own fade starts, around 84%. The slight
+   desaturation settles a cool studio shot into a warm off-white page. */
+.hero-portrait {
+  filter: saturate(0.94) contrast(1.02);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 82%,
+    rgb(0 0 0 / 0.5) 93%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(to bottom, #000 82%, rgb(0 0 0 / 0.5) 93%, transparent 100%);
 }
 
 .link-line {

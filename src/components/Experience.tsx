@@ -6,7 +6,7 @@ import { cn } from "../utils/cn";
 
 const META = [
   { key: "Company", value: "NetAI Pvt. Ltd." },
-  { key: "Product", value: "AI network observability platform" },
+  { key: "Product", value: "AI-powered network monitoring platform" },
   { key: "Stack", value: "React · TypeScript · ECharts" },
   { key: "Tenure", value: "Apr 2025 — Jul 2026" },
   { key: "Base", value: "Ahmedabad · India" },
@@ -17,7 +17,7 @@ export default function Experience() {
 
   return (
     <section id="experience" className="container-x section-pad">
-      <SectionHeader index="03" label="Professional Experience" note="( Full-Stack Engineer )" />
+      <SectionHeader index="03" label="Professional Experience" note="( Software Engineer )" />
 
       {/* Hero Experience Card */}
       <Reveal className="mt-12 md:mt-16">

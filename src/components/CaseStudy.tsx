@@ -30,12 +30,12 @@ const CONTENT: Record<string, StudyContent> = {
     challenge:
       "Collaborative coding tools fragment editing, conversation, execution and AI assistance into separate contexts — and most can't actually run a full-stack app without local setup.",
     approach:
-      "I built a Spring Boot backend (Spring Data MongoDB, JWT, Redis) with a netty-socketio realtime layer, unified Monaco and the WebContainer API into one synchronized React workspace, then designed a Gemini flow that scaffolds complete projects conversationally and merges the generated files into the tree. The runner detects both the backend and frontend, installs and starts each, and lets you preview either from switchable URLs.",
+      "I built a Spring Boot backend (Spring Data MongoDB, JWT, Redis) with a STOMP-over-WebSocket realtime layer, unified Monaco and the WebContainer API into one synchronized React workspace, then designed a Gemini flow that scaffolds complete projects conversationally and merges the generated files into the tree. The runner detects both the backend and frontend, installs and starts each, and lets you preview either from switchable URLs.",
     outcome:
       "Teams write, chat, generate and run full-stack projects together — backend and frontend both live in the browser — with no local environment at all.",
     metrics: [
       { value: "27", label: "REST endpoints" },
-      { value: "11", label: "realtime socket events" },
+      { value: "11", label: "STOMP channels" },
       { value: "0", label: "local setup required" },
     ],
   },
