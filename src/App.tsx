@@ -114,7 +114,9 @@ export default function App() {
       document.title = `${caseStudy.title} — Case Study | Sunny Solanki`;
     } else {
       lenis?.start();
-      document.title = "Sunny Solanki — Full-Stack Java Engineer";
+      // Must stay in step with the <title> in index.html — this overwrites it on mount,
+      // so a mismatch shows two different titles either side of hydration.
+      document.title = "Sunny Solanki — Full-Stack Software Engineer";
       if (hash && document.querySelector(hash)) {
         window.setTimeout(() => {
           if (lenis) lenis.scrollTo(hash, { duration: 1.2 });
